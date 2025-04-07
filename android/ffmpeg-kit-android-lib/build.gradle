@@ -1,5 +1,4 @@
 apply plugin: 'com.android.library'
-apply plugin: 'maven-publish'
 
 android {
     if (project.android.hasProperty("namespace")) {
@@ -11,8 +10,8 @@ android {
     defaultConfig {
         minSdk 24
         targetSdk 33
-        versionCode 240606
-        versionName "6.0.6"
+        versionCode 240600
+        versionName "6.0"
         project.archivesBaseName = "ffmpeg-kit"
         consumerProguardFiles "consumer-rules.pro"
     }
@@ -42,37 +41,13 @@ android {
         }
     }
 
+
     publishing {
         singleVariant('release') {
             withJavadocJar()
             withSourcesJar()
         }
     }
-}
-
-publishing {
-  publications {
-    release(MavenPublication) {
-      groupId = 'ch.voicepoint'
-      artifactId = 'ffmpeg-kit'
-      version = '6.0.6'
-
-      afterEvaluate {
-        from components.release
-      }
-    }
-  }
-
-  repositories {
-    maven {
-      name = "GitHubPackages"
-      url = "https://maven.pkg.github.com/vpume/ffmpeg-kit"
-      credentials {
-        username = project.findProperty("gpr.user") ?: System.getenv("GITHUB_ACTOR")
-        password = project.findProperty("gpr.key") ?: System.getenv("GITHUB_TOKEN")
-      }
-    }
-  }
 }
 
 task javadoc(type: Javadoc) {

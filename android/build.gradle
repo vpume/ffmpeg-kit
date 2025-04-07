@@ -8,6 +8,42 @@ buildscript {
     }
 }
 
+plugins {
+    id 'maven-publish'
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId = 'ch.voicepoint'
+            artifactId = 'ffmpeg-kit'
+            version = '6.0.6'
+
+            artifact(file('../prebuilt/bundle-android-aar/ffmpeg-kit/ffmpeg-kit.aar')) {
+                extension = 'aar'
+            }
+
+            pom {
+                name = 'FFmpeg Kit'
+                description = 'Prebuilt FFmpeg Kit Library'
+            }
+        }
+    }
+
+    repositories {
+        maven {
+            name = "GitHubPackages"     
+            url = "https://maven.pkg.github.com/vpume/ffmpeg-kit"
+            credentials {
+                // DO-NOT-COMMIT
+                username = 'vpume'
+                // DO-NOT-COMMIT
+                password = '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' 
+            }
+        }
+    }
+}
+
 allprojects {
     repositories {
         google()
