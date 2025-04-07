@@ -120,5 +120,5 @@ repositories {
 
 dependencies {
   api 'com.facebook.react:react-native:+'
-  implementation 'ch.voicepoint:ffmpeg-kit:6.0.6'
+  implementation 'ch.voicepoint:ffmpeg-kit:6.0.13'
 }
