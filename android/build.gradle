@@ -17,9 +17,9 @@ publishing {
         maven(MavenPublication) {
             groupId = 'ch.voicepoint'
             artifactId = 'ffmpeg-kit'
-            version = '6.0.13'
+            version = '6.0.14'
 
-            artifact(file('ch/voicepoint/ffmpeg-kit/6.0.13/ffmpeg-kit.aar')) {
+            artifact(file('ch/voicepoint/ffmpeg-kit/6.0.14/ffmpeg-kit.aar')) {
                 extension = 'aar'
             }
 
