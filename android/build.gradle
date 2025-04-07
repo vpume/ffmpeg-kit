@@ -35,7 +35,7 @@ publishing {
             name = "GitHubPackages"     
             url = "https://maven.pkg.github.com/vpume/ffmpeg-kit"
             credentials {
-                username = System.getenv('GITHUB_USERNAME') 'vpume'
+                username = System.getenv('GITHUB_USERNAME')
                 password = System.getenv('GITHUB_PAT') 
             }
         }
