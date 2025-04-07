@@ -14,12 +14,12 @@ Pod::Spec.new do |s|
   s.requires_arc      = true
   s.static_framework  = true
 
-  s.source       = { :git => "https://github.com/vpume/ffmpeg-kit.git", :tag => "react.native.v#{s.version}-voicepoint" }
+  s.source       = { :git => "https://github.com/vpume/ffmpeg-kit.git", :tag => "react.native.v6.0.10-voicepoint" }
 
   s.dependency "React-Core"
 
   s.source_files      = '**/FFmpegKitReactNativeModule.m',
                        '**/FFmpegKitReactNativeModule.h'
-  s.dependency 'voicepoint-ffmpeg-kit-ios-https', "6.0.9"
+  s.dependency 'voicepoint-ffmpeg-kit-ios-https', "6.0.10"
   s.ios.deployment_target = '12.1'
 end

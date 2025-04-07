@@ -22,7 +22,7 @@ android {
     minSdkVersion 24
     targetSdkVersion 33
     versionCode 602
-    versionName "6.0.9"
+    versionName "6.0.10"
   }
 
   buildTypes {
