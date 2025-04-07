@@ -131,8 +131,6 @@ public class FFmpegKitConfig {
 
     static {
 
-        Exceptions.registerRootPackage("ch.voicepoint");
-
         android.util.Log.i(FFmpegKitConfig.TAG, "Loading ffmpeg-kit. (VOICEPOINT)");
 
         final boolean nativeFFmpegTriedAndFailed = NativeLoader.loadFFmpeg();
