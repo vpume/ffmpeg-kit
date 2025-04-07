@@ -17,7 +17,7 @@
  *  along with FFmpegKit.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.arthenica.ffmpegkit;
+package ch.voicepoint.ffmpegkit;
 
 /**
  * <p>Callback function that is invoked when an asynchronous <code>FFprobe</code> session has ended.

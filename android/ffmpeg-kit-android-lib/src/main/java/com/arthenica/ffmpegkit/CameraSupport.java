@@ -17,7 +17,7 @@
  *  along with FFmpegKit.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.arthenica.ffmpegkit;
+package ch.voicepoint.ffmpegkit;
 
 import android.content.Context;
 import android.hardware.camera2.CameraAccessException;
@@ -31,7 +31,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static android.content.Context.CAMERA_SERVICE;
-import static com.arthenica.ffmpegkit.FFmpegKitConfig.TAG;
+import static ch.voicepoint.ffmpegkit.FFmpegKitConfig.TAG;
 
 /**
  * <p>Helper class to detect camera devices that can be used in

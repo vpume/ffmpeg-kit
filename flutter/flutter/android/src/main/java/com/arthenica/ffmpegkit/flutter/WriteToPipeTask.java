@@ -17,9 +17,9 @@
  * along with FFmpegKit.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.arthenica.ffmpegkit.flutter;
+package ch.voicepoint.ffmpegkit.flutter;
 
-import static com.arthenica.ffmpegkit.flutter.FFmpegKitFlutterPlugin.LIBRARY_NAME;
+import static ch.voicepoint.ffmpegkit.flutter.FFmpegKitFlutterPlugin.LIBRARY_NAME;
 
 import android.util.Log;
 

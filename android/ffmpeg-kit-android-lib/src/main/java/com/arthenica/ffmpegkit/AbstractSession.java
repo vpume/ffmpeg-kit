@@ -17,9 +17,7 @@
  *  along with FFmpegKit.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.arthenica.ffmpegkit;
-
-import com.arthenica.smartexception.java.Exceptions;
+package ch.voicepoint.ffmpegkit;
 
 import java.util.Date;
 import java.util.LinkedList;
@@ -348,7 +346,7 @@ public abstract class AbstractSession implements Session {
      * @param exception execution received
      */
     void fail(final Exception exception) {
-        this.failStackTrace = Exceptions.getStackTraceString(exception);
+        this.failStackTrace = "";
         this.state = SessionState.FAILED;
         this.endTime = new Date();
     }

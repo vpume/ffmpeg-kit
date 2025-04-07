@@ -17,12 +17,12 @@
  * along with FFmpegKit.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.arthenica.ffmpegkit.flutter;
+package ch.voicepoint.ffmpegkit.flutter;
 
 import androidx.annotation.NonNull;
 
-import com.arthenica.ffmpegkit.FFmpegKitConfig;
-import com.arthenica.ffmpegkit.FFmpegSession;
+import ch.voicepoint.ffmpegkit.FFmpegKitConfig;
+import ch.voicepoint.ffmpegkit.FFmpegSession;
 
 import io.flutter.plugin.common.MethodChannel;
 

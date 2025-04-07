@@ -27,24 +27,24 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.arthenica.ffmpegkit.AbiDetect;
-import com.arthenica.ffmpegkit.AbstractSession;
-import com.arthenica.ffmpegkit.FFmpegKit;
-import com.arthenica.ffmpegkit.FFmpegKitConfig;
-import com.arthenica.ffmpegkit.FFmpegSession;
-import com.arthenica.ffmpegkit.FFprobeKit;
-import com.arthenica.ffmpegkit.FFprobeSession;
-import com.arthenica.ffmpegkit.Level;
-import com.arthenica.ffmpegkit.LogRedirectionStrategy;
-import com.arthenica.ffmpegkit.MediaInformation;
-import com.arthenica.ffmpegkit.MediaInformationJsonParser;
-import com.arthenica.ffmpegkit.MediaInformationSession;
-import com.arthenica.ffmpegkit.Packages;
-import com.arthenica.ffmpegkit.ReturnCode;
-import com.arthenica.ffmpegkit.Session;
-import com.arthenica.ffmpegkit.SessionState;
-import com.arthenica.ffmpegkit.Signal;
-import com.arthenica.ffmpegkit.Statistics;
+import ch.voicepoint.ffmpegkit.AbiDetect;
+import ch.voicepoint.ffmpegkit.AbstractSession;
+import ch.voicepoint.ffmpegkit.FFmpegKit;
+import ch.voicepoint.ffmpegkit.FFmpegKitConfig;
+import ch.voicepoint.ffmpegkit.FFmpegSession;
+import ch.voicepoint.ffmpegkit.FFprobeKit;
+import ch.voicepoint.ffmpegkit.FFprobeSession;
+import ch.voicepoint.ffmpegkit.Level;
+import ch.voicepoint.ffmpegkit.LogRedirectionStrategy;
+import ch.voicepoint.ffmpegkit.MediaInformation;
+import ch.voicepoint.ffmpegkit.MediaInformationJsonParser;
+import ch.voicepoint.ffmpegkit.MediaInformationSession;
+import ch.voicepoint.ffmpegkit.Packages;
+import ch.voicepoint.ffmpegkit.ReturnCode;
+import ch.voicepoint.ffmpegkit.Session;
+import ch.voicepoint.ffmpegkit.SessionState;
+import ch.voicepoint.ffmpegkit.Signal;
+import ch.voicepoint.ffmpegkit.Statistics;
 import com.facebook.react.bridge.Arguments;
 import com.facebook.react.bridge.BaseActivityEventListener;
 import com.facebook.react.bridge.Promise;
@@ -228,7 +228,7 @@ public class FFmpegKitReactNativeModule extends ReactContextBaseJavaModule {
         } else {
           timeout = AbstractSession.DEFAULT_TIMEOUT_FOR_ASYNCHRONOUS_MESSAGES_IN_TRANSMIT;
         }
-        final List<com.arthenica.ffmpegkit.Log> allLogs = session.getAllLogs(timeout);
+        final List<ch.voicepoint.ffmpegkit.Log> allLogs = session.getAllLogs(timeout);
         promise.resolve(toLogArray(allLogs));
       }
     } else {
@@ -243,7 +243,7 @@ public class FFmpegKitReactNativeModule extends ReactContextBaseJavaModule {
       if (session == null) {
         promise.reject("SESSION_NOT_FOUND", "Session not found.");
       } else {
-        final List<com.arthenica.ffmpegkit.Log> allLogs = session.getLogs();
+        final List<ch.voicepoint.ffmpegkit.Log> allLogs = session.getLogs();
         promise.resolve(toLogArray(allLogs));
       }
     } else {
@@ -1107,7 +1107,7 @@ public class FFmpegKitReactNativeModule extends ReactContextBaseJavaModule {
     return map;
   }
 
-  protected static WritableMap toMap(final com.arthenica.ffmpegkit.Log log) {
+  protected static WritableMap toMap(final ch.voicepoint.ffmpegkit.Log log) {
     final WritableMap logMap = Arguments.createMap();
 
     logMap.putDouble(KEY_LOG_SESSION_ID, log.getSessionId());
@@ -1234,7 +1234,7 @@ public class FFmpegKitReactNativeModule extends ReactContextBaseJavaModule {
     return sessionArray;
   }
 
-  protected static WritableArray toLogArray(final List<com.arthenica.ffmpegkit.Log> logList) {
+  protected static WritableArray toLogArray(final List<ch.voicepoint.ffmpegkit.Log> logList) {
     final WritableArray logArray = Arguments.createArray();
 
     for (int i = 0; i < logList.size(); i++) {
@@ -1244,7 +1244,7 @@ public class FFmpegKitReactNativeModule extends ReactContextBaseJavaModule {
     return logArray;
   }
 
-  protected static WritableArray toStatisticsArray(final List<com.arthenica.ffmpegkit.Statistics> statisticsList) {
+  protected static WritableArray toStatisticsArray(final List<ch.voicepoint.ffmpegkit.Statistics> statisticsList) {
     final WritableArray statisticsArray = Arguments.createArray();
 
     for (int i = 0; i < statisticsList.size(); i++) {

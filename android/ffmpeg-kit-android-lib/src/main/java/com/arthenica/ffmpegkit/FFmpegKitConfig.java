@@ -17,7 +17,7 @@
  *  along with FFmpegKit.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.arthenica.ffmpegkit;
+package ch.voicepoint.ffmpegkit;
 
 import android.content.ContentProvider;
 import android.content.ContentResolver;
@@ -972,7 +972,10 @@ public class FFmpegKitConfig {
         String displayName = "unknown";
         try (Cursor cursor = context.getContentResolver().query(uri, null, null, null, null)) {
             if (cursor != null && cursor.moveToFirst()) {
-                displayName = cursor.getString(cursor.getColumnIndex(DocumentsContract.Document.COLUMN_DISPLAY_NAME));
+                final int columnIndex = cursor.getColumnIndex(DocumentsContract.Document.COLUMN_DISPLAY_NAME);
+                if(columnIndex>=0) {
+                    displayName = cursor.getString(columnIndex);
+                }
             }
         } catch (final Throwable t) {
             android.util.Log.e(TAG, String.format("Failed to get %s column for %s.", DocumentsContract.Document.COLUMN_DISPLAY_NAME, uri.toString()));

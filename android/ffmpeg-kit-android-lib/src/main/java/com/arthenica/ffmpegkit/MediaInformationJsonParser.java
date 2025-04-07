@@ -17,11 +17,9 @@
  * along with FFmpegKit.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.arthenica.ffmpegkit;
+package ch.voicepoint.ffmpegkit;
 
 import android.util.Log;
-
-import com.arthenica.smartexception.java.Exceptions;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -49,7 +47,7 @@ public class MediaInformationJsonParser {
         try {
             return fromWithError(ffprobeJsonOutput);
         } catch (JSONException e) {
-            Log.e(FFmpegKitConfig.TAG, String.format("MediaInformation parsing failed.%s", Exceptions.getStackTraceString(e)));
+            Log.e(FFmpegKitConfig.TAG, String.format("MediaInformation parsing failed"));
             return null;
         }
     }

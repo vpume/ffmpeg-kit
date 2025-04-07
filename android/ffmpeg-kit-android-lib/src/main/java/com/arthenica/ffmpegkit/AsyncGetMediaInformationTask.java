@@ -17,9 +17,7 @@
  * along with FFmpegKit.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.arthenica.ffmpegkit;
-
-import com.arthenica.smartexception.java.Exceptions;
+package ch.voicepoint.ffmpegkit;
 
 /**
  * <p>Executes a MediaInformation session asynchronously.
@@ -48,7 +46,7 @@ public class AsyncGetMediaInformationTask implements Runnable {
                 // NOTIFY SESSION CALLBACK DEFINED
                 completeCallback.apply(mediaInformationSession);
             } catch (final Exception e) {
-                android.util.Log.e(FFmpegKitConfig.TAG, String.format("Exception thrown inside session complete callback.%s", Exceptions.getStackTraceString(e)));
+                android.util.Log.e(FFmpegKitConfig.TAG, String.format("Exception thrown inside session complete callback"));
             }
         }
 
@@ -58,7 +56,7 @@ public class AsyncGetMediaInformationTask implements Runnable {
                 // NOTIFY GLOBAL CALLBACK DEFINEDs
                 globalMediaInformationSessionCompleteCallback.apply(mediaInformationSession);
             } catch (final Exception e) {
-                android.util.Log.e(FFmpegKitConfig.TAG, String.format("Exception thrown inside global complete callback.%s", Exceptions.getStackTraceString(e)));
+                android.util.Log.e(FFmpegKitConfig.TAG, String.format("Exception thrown inside global complete callback"));
             }
         }
     }

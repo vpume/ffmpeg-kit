@@ -17,7 +17,7 @@
  * along with FFmpegKit.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.arthenica.ffmpegkit.flutter;
+package ch.voicepoint.ffmpegkit.flutter;
 
 import android.app.Activity;
 import android.content.Context;
@@ -29,24 +29,24 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.arthenica.ffmpegkit.AbiDetect;
-import com.arthenica.ffmpegkit.AbstractSession;
-import com.arthenica.ffmpegkit.FFmpegKit;
-import com.arthenica.ffmpegkit.FFmpegKitConfig;
-import com.arthenica.ffmpegkit.FFmpegSession;
-import com.arthenica.ffmpegkit.FFprobeKit;
-import com.arthenica.ffmpegkit.FFprobeSession;
-import com.arthenica.ffmpegkit.Level;
-import com.arthenica.ffmpegkit.LogRedirectionStrategy;
-import com.arthenica.ffmpegkit.MediaInformation;
-import com.arthenica.ffmpegkit.MediaInformationJsonParser;
-import com.arthenica.ffmpegkit.MediaInformationSession;
-import com.arthenica.ffmpegkit.Packages;
-import com.arthenica.ffmpegkit.ReturnCode;
-import com.arthenica.ffmpegkit.Session;
-import com.arthenica.ffmpegkit.SessionState;
-import com.arthenica.ffmpegkit.Signal;
-import com.arthenica.ffmpegkit.Statistics;
+import ch.voicepoint.ffmpegkit.AbiDetect;
+import ch.voicepoint.ffmpegkit.AbstractSession;
+import ch.voicepoint.ffmpegkit.FFmpegKit;
+import ch.voicepoint.ffmpegkit.FFmpegKitConfig;
+import ch.voicepoint.ffmpegkit.FFmpegSession;
+import ch.voicepoint.ffmpegkit.FFprobeKit;
+import ch.voicepoint.ffmpegkit.FFprobeSession;
+import ch.voicepoint.ffmpegkit.Level;
+import ch.voicepoint.ffmpegkit.LogRedirectionStrategy;
+import ch.voicepoint.ffmpegkit.MediaInformation;
+import ch.voicepoint.ffmpegkit.MediaInformationJsonParser;
+import ch.voicepoint.ffmpegkit.MediaInformationSession;
+import ch.voicepoint.ffmpegkit.Packages;
+import ch.voicepoint.ffmpegkit.ReturnCode;
+import ch.voicepoint.ffmpegkit.Session;
+import ch.voicepoint.ffmpegkit.SessionState;
+import ch.voicepoint.ffmpegkit.Signal;
+import ch.voicepoint.ffmpegkit.Statistics;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -750,7 +750,7 @@ public class FFmpegKitFlutterPlugin implements FlutterPlugin, ActivityAware, Met
             } else {
                 timeout = AbstractSession.DEFAULT_TIMEOUT_FOR_ASYNCHRONOUS_MESSAGES_IN_TRANSMIT;
             }
-            final List<com.arthenica.ffmpegkit.Log> allLogs = session.getAllLogs(timeout);
+            final List<ch.voicepoint.ffmpegkit.Log> allLogs = session.getAllLogs(timeout);
             resultHandler.successAsync(result, toLogMapList(allLogs));
         }
     }
@@ -760,7 +760,7 @@ public class FFmpegKitFlutterPlugin implements FlutterPlugin, ActivityAware, Met
         if (session == null) {
             resultHandler.errorAsync(result, "SESSION_NOT_FOUND", "Session not found.");
         } else {
-            final List<com.arthenica.ffmpegkit.Log> allLogs = session.getLogs();
+            final List<ch.voicepoint.ffmpegkit.Log> allLogs = session.getLogs();
             resultHandler.successAsync(result, toLogMapList(allLogs));
         }
     }
@@ -1424,7 +1424,7 @@ public class FFmpegKitFlutterPlugin implements FlutterPlugin, ActivityAware, Met
         }
     }
 
-    protected static Map<String, Object> toMap(final com.arthenica.ffmpegkit.Log log) {
+    protected static Map<String, Object> toMap(final ch.voicepoint.ffmpegkit.Log log) {
         final HashMap<String, Object> logMap = new HashMap<>();
 
         logMap.put(KEY_LOG_SESSION_ID, log.getSessionId());
@@ -1518,7 +1518,7 @@ public class FFmpegKitFlutterPlugin implements FlutterPlugin, ActivityAware, Met
         return list;
     }
 
-    protected static List<Map<String, Object>> toLogMapList(final List<com.arthenica.ffmpegkit.Log> logList) {
+    protected static List<Map<String, Object>> toLogMapList(final List<ch.voicepoint.ffmpegkit.Log> logList) {
         final List<Map<String, Object>> list = new ArrayList<>();
 
         for (int i = 0; i < logList.size(); i++) {
@@ -1528,7 +1528,7 @@ public class FFmpegKitFlutterPlugin implements FlutterPlugin, ActivityAware, Met
         return list;
     }
 
-    protected static List<Map<String, Object>> toStatisticsMapList(final List<com.arthenica.ffmpegkit.Statistics> statisticsList) {
+    protected static List<Map<String, Object>> toStatisticsMapList(final List<ch.voicepoint.ffmpegkit.Statistics> statisticsList) {
         final List<Map<String, Object>> list = new ArrayList<>();
 
         for (int i = 0; i < statisticsList.size(); i++) {
@@ -1542,7 +1542,7 @@ public class FFmpegKitFlutterPlugin implements FlutterPlugin, ActivityAware, Met
         return (value != null) && (value >= 0);
     }
 
-    protected void emitLog(final com.arthenica.ffmpegkit.Log log) {
+    protected void emitLog(final ch.voicepoint.ffmpegkit.Log log) {
         final HashMap<String, Object> logMap = new HashMap<>();
         logMap.put(EVENT_LOG_CALLBACK_EVENT, toMap(log));
         resultHandler.successAsync(eventSink, logMap);

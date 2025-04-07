@@ -17,9 +17,9 @@
  * along with FFmpegKit.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.arthenica.ffmpegkit;
+package ch.voicepoint.ffmpegkit;
 
-import static com.arthenica.ffmpegkit.FFmpegSessionTest.TEST_ARGUMENTS;
+import static ch.voicepoint.ffmpegkit.FFmpegSessionTest.TEST_ARGUMENTS;
 
 import org.junit.Assert;
 import org.junit.Test;
