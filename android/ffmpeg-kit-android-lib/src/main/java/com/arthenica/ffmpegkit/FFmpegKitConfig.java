@@ -131,9 +131,9 @@ public class FFmpegKitConfig {
 
     static {
 
-        Exceptions.registerRootPackage("com.arthenica");
+        // Exceptions.registerRootPackage("com.arthenica");
 
-        android.util.Log.i(FFmpegKitConfig.TAG, "Loading ffmpeg-kit.");
+        android.util.Log.i(FFmpegKitConfig.TAG, "Loading ffmpeg-kit. (VOICEPOINT)");
 
         final boolean nativeFFmpegTriedAndFailed = NativeLoader.loadFFmpeg();
 
