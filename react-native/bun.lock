@@ -2,7 +2,7 @@
   "lockfileVersion": 1,
   "workspaces": {
     "": {
-      "name": "@my-groove/ffmpeg-kit-react-native",
+      "name": "@voicepoint/ffmpeg-kit-react-native",
       "devDependencies": {
         "@commitlint/config-conventional": "^17.7.0",
         "@react-native-community/eslint-config": "^2.0.0",

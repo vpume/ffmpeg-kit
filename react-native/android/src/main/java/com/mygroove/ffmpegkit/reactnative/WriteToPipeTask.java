@@ -17,9 +17,9 @@
  *  along with FFmpegKit.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.mygroove.ffmpegkit.reactnative;
+package ch.voicepoint.ffmpegkit.reactnative;
 
-import static com.mygroove.ffmpegkit.reactnative.FFmpegKitReactNativeModule.LIBRARY_NAME;
+import static ch.voicepoint.ffmpegkit.reactnative.FFmpegKitReactNativeModule.LIBRARY_NAME;
 
 import android.util.Log;
 

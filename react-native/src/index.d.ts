@@ -1,4 +1,4 @@
-declare module '@my-groove/ffmpeg-kit-react-native' {
+declare module '@voicepoint/ffmpeg-kit-react-native' {
 
   export abstract class AbstractSession implements Session {
 

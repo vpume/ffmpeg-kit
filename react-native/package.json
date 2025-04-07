@@ -1,5 +1,5 @@
 {
-  "name": "@my-groove/ffmpeg-kit-react-native",
+  "name": "@voicepoint/ffmpeg-kit-react-native",
   "version": "6.0.8",
   "description": "FFmpeg Kit for React Native",
   "main": "src/index",
@@ -18,13 +18,13 @@
     "ffmpeg-kit",
     "ios"
   ],
-  "repository": "https://github.com/my-groove/ffmpeg-kit",
-  "author": "MyGroove <support@mygroove.com> (https://www.mygroove.com)",
+  "repository": "https://github.com/vpume/ffmpeg-kit",
+  "author": "Voicepoint <info@voicepoint.ch> (https://www.voicepoint.ch)",
   "license": "LGPL-3.0",
   "bugs": {
-    "url": "https://github.com/my-groove/ffmpeg-kit/issues"
+    "url": "https://github.com/vpume/ffmpeg-kit/issues"
   },
-  "homepage": "https://github.com/my-groove/ffmpeg-kit",
+  "homepage": "https://github.com/vpume/ffmpeg-kit",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
   },

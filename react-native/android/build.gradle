@@ -13,7 +13,7 @@ apply plugin: 'com.android.library'
 
 android {
   if (project.android.hasProperty("namespace")) {
-    namespace 'com.mygroove.ffmpegkit.reactnative'
+    namespace 'ch.voicepoint.ffmpegkit.reactnative'
   }
 
   compileSdkVersion 33
@@ -42,7 +42,7 @@ android {
 repositories {
   maven {
     name = "GitHubPackages"
-    url = "https://maven.pkg.github.com/my-groove/ffmpeg-kit"
+    url = "https://maven.pkg.github.com/vpume/ffmpeg-kit"
     credentials {
       username = project.findProperty("gpr.user") ?: System.getenv("GITHUB_ACTOR")
       password = project.findProperty("gpr.key") ?: System.getenv("GITHUB_TOKEN")
@@ -120,5 +120,5 @@ repositories {
 
 dependencies {
   api 'com.facebook.react:react-native:+'
-  implementation 'com.mygroove:ffmpeg-kit:6.0.6'
+  implementation 'ch.voicepoint:ffmpeg-kit:6.0.6'
 }

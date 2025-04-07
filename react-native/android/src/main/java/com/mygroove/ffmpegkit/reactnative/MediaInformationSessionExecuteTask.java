@@ -17,7 +17,7 @@
  * along with FFmpegKit.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.mygroove.ffmpegkit.reactnative;
+package ch.voicepoint.ffmpegkit.reactnative;
 
 import com.arthenica.ffmpegkit.FFmpegKitConfig;
 import com.arthenica.ffmpegkit.MediaInformationSession;
