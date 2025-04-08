@@ -19,7 +19,7 @@
 
 package ch.voicepoint.ffmpegkit.reactnative;
 
-import com.arthenica.ffmpegkit.FFmpegKitConfig;
+import com.arthenica.ffmpegkit.FFmpegKitConfigVoicepoint;
 import com.arthenica.ffmpegkit.FFprobeSession;
 import com.facebook.react.bridge.Promise;
 
@@ -34,7 +34,7 @@ public class FFprobeSessionExecuteTask implements Runnable {
 
   @Override
   public void run() {
-    FFmpegKitConfig.ffprobeExecute(ffprobeSession);
+    FFmpegKitConfigVoicepoint.ffprobeExecute(ffprobeSession);
     promise.resolve(null);
   }
 }
