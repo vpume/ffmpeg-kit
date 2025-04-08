@@ -1,6 +1,6 @@
 {
   "name": "@voicepoint/ffmpeg-kit-react-native",
-  "version": "6.0.27",
+  "version": "6.0.28",
   "description": "FFmpeg Kit for React Native",
   "main": "src/index",
   "types": "src/index.d.ts",
