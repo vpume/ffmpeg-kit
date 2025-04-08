@@ -620,7 +620,7 @@ public class FFmpegKitTest {
 
     @Test
     public void parseSimpleCommand() {
-        final String[] argumentArray = FFmpegKitConfig.parseArguments("-hide_banner -loop 1 -i file.jpg -filter_complex [0:v]setpts=PTS-STARTPTS[video] -map [video] -vsync 2 -async 1 video.mp4");
+        final String[] argumentArray = FFmpegKitConfigVoicepoint.parseArguments("-hide_banner -loop 1 -i file.jpg -filter_complex [0:v]setpts=PTS-STARTPTS[video] -map [video] -vsync 2 -async 1 video.mp4");
 
         Assert.assertNotNull(argumentArray);
         Assert.assertEquals(14, argumentArray.length);
@@ -643,7 +643,7 @@ public class FFmpegKitTest {
 
     @Test
     public void parseSingleQuotesInCommand() {
-        String[] argumentArray = FFmpegKitConfig.parseArguments("-loop 1 'file one.jpg'  -filter_complex  '[0:v]setpts=PTS-STARTPTS[video]'  -map  [video]  video.mp4 ");
+        String[] argumentArray = FFmpegKitConfigVoicepoint.parseArguments("-loop 1 'file one.jpg'  -filter_complex  '[0:v]setpts=PTS-STARTPTS[video]'  -map  [video]  video.mp4 ");
 
         Assert.assertNotNull(argumentArray);
         Assert.assertEquals(8, argumentArray.length);
@@ -660,7 +660,7 @@ public class FFmpegKitTest {
 
     @Test
     public void parseDoubleQuotesInCommand() {
-        String[] argumentArray = FFmpegKitConfig.parseArguments("-loop  1 \"file one.jpg\"   -filter_complex \"[0:v]setpts=PTS-STARTPTS[video]\"  -map  [video]  video.mp4 ");
+        String[] argumentArray = FFmpegKitConfigVoicepoint.parseArguments("-loop  1 \"file one.jpg\"   -filter_complex \"[0:v]setpts=PTS-STARTPTS[video]\"  -map  [video]  video.mp4 ");
 
         Assert.assertNotNull(argumentArray);
         Assert.assertEquals(8, argumentArray.length);
@@ -674,7 +674,7 @@ public class FFmpegKitTest {
         Assert.assertEquals("[video]", argumentArray[6]);
         Assert.assertEquals("video.mp4", argumentArray[7]);
 
-        argumentArray = FFmpegKitConfig.parseArguments(" -i   file:///tmp/input.mp4 -vcodec libx264 -vf \"scale=1024:1024,pad=width=1024:height=1024:x=0:y=0:color=black\"  -acodec copy  -q:v 0  -q:a   0 video.mp4");
+        argumentArray = FFmpegKitConfigVoicepoint.parseArguments(" -i   file:///tmp/input.mp4 -vcodec libx264 -vf \"scale=1024:1024,pad=width=1024:height=1024:x=0:y=0:color=black\"  -acodec copy  -q:v 0  -q:a   0 video.mp4");
 
         Assert.assertNotNull(argumentArray);
         Assert.assertEquals(13, argumentArray.length);
@@ -696,7 +696,7 @@ public class FFmpegKitTest {
 
     @Test
     public void parseDoubleQuotesAndEscapesInCommand() {
-        String[] argumentArray = FFmpegKitConfig.parseArguments("  -i   file:///tmp/input.mp4 -vf \"subtitles=file:///tmp/subtitles.srt:force_style=\'FontSize=16,PrimaryColour=&HFFFFFF&\'\" -vcodec libx264   -acodec copy  -q:v 0 -q:a  0  video.mp4");
+        String[] argumentArray = FFmpegKitConfigVoicepoint.parseArguments("  -i   file:///tmp/input.mp4 -vf \"subtitles=file:///tmp/subtitles.srt:force_style=\'FontSize=16,PrimaryColour=&HFFFFFF&\'\" -vcodec libx264   -acodec copy  -q:v 0 -q:a  0  video.mp4");
 
         Assert.assertNotNull(argumentArray);
         Assert.assertEquals(13, argumentArray.length);
@@ -715,7 +715,7 @@ public class FFmpegKitTest {
         Assert.assertEquals("0", argumentArray[11]);
         Assert.assertEquals("video.mp4", argumentArray[12]);
 
-        argumentArray = FFmpegKitConfig.parseArguments("  -i   file:///tmp/input.mp4 -vf \"subtitles=file:///tmp/subtitles.srt:force_style=\\\"FontSize=16,PrimaryColour=&HFFFFFF&\\\"\" -vcodec libx264   -acodec copy  -q:v 0 -q:a  0  video.mp4");
+        argumentArray = FFmpegKitConfigVoicepoint.parseArguments("  -i   file:///tmp/input.mp4 -vf \"subtitles=file:///tmp/subtitles.srt:force_style=\\\"FontSize=16,PrimaryColour=&HFFFFFF&\\\"\" -vcodec libx264   -acodec copy  -q:v 0 -q:a  0  video.mp4");
 
         Assert.assertNotNull(argumentArray);
         Assert.assertEquals(13, argumentArray.length);
@@ -742,7 +742,7 @@ public class FFmpegKitTest {
     }
 
     public String argumentsToString(final String[] arguments) {
-        return FFmpegKitConfig.argumentsToString(arguments);
+        return FFmpegKitConfigVoicepoint.argumentsToString(arguments);
     }
 
     private void assertMediaInput(MediaInformation mediaInformation, String format, String filename) {

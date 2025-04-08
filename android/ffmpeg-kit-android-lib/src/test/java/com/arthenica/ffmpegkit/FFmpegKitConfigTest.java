@@ -30,7 +30,7 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * <p>Tests for {@link FFmpegKitConfig} class.
+ * <p>Tests for {@link FFmpegKitConfigVoicepoint} class.
  */
 public class FFmpegKitConfigTest {
 
@@ -156,34 +156,34 @@ public class FFmpegKitConfigTest {
 
     @Test
     public void extractExtensionFromSafDisplayName() {
-        String extension = FFmpegKitConfig.extractExtensionFromSafDisplayName("video.mp4 (2)");
+        String extension = FFmpegKitConfigVoicepoint.extractExtensionFromSafDisplayName("video.mp4 (2)");
         Assert.assertEquals("mp4", extension);
 
-        extension = FFmpegKitConfig.extractExtensionFromSafDisplayName("video file name.mp3 (2)");
+        extension = FFmpegKitConfigVoicepoint.extractExtensionFromSafDisplayName("video file name.mp3 (2)");
         Assert.assertEquals("mp3", extension);
 
-        extension = FFmpegKitConfig.extractExtensionFromSafDisplayName("file.mp4");
+        extension = FFmpegKitConfigVoicepoint.extractExtensionFromSafDisplayName("file.mp4");
         Assert.assertEquals("mp4", extension);
 
-        extension = FFmpegKitConfig.extractExtensionFromSafDisplayName("file name.mp4");
+        extension = FFmpegKitConfigVoicepoint.extractExtensionFromSafDisplayName("file name.mp4");
         Assert.assertEquals("mp4", extension);
     }
 
     @Test
     public void setSessionHistorySize() {
         int newSize = 15;
-        FFmpegKitConfig.setSessionHistorySize(newSize);
+        FFmpegKitConfigVoicepoint.setSessionHistorySize(newSize);
 
         for (int i = 1; i <= (newSize + 5); i++) {
             FFmpegSession.create(TEST_ARGUMENTS);
-            Assert.assertTrue(FFmpegKitConfig.getSessions().size() <= newSize);
+            Assert.assertTrue(FFmpegKitConfigVoicepoint.getSessions().size() <= newSize);
         }
 
         newSize = 3;
-        FFmpegKitConfig.setSessionHistorySize(newSize);
+        FFmpegKitConfigVoicepoint.setSessionHistorySize(newSize);
         for (int i = 1; i <= (newSize + 5); i++) {
             FFmpegSession.create(TEST_ARGUMENTS);
-            Assert.assertTrue(FFmpegKitConfig.getSessions().size() <= newSize);
+            Assert.assertTrue(FFmpegKitConfigVoicepoint.getSessions().size() <= newSize);
         }
     }
 

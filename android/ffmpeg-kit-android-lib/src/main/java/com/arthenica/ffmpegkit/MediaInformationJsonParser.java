@@ -49,7 +49,7 @@ public class MediaInformationJsonParser {
         try {
             return fromWithError(ffprobeJsonOutput);
         } catch (JSONException e) {
-            Log.e(FFmpegKitConfig.TAG, String.format("MediaInformation parsing failed.%s", Exceptions.getStackTraceString(e)));
+            Log.e(FFmpegKitConfigVoicepoint.TAG, String.format("MediaInformation parsing failed.%s", Exceptions.getStackTraceString(e)));
             return null;
         }
     }

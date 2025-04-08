@@ -1,4 +1,4 @@
--keep class com.arthenica.ffmpegkit.FFmpegKitConfig {
+-keep class com.arthenica.ffmpegkit.FFmpegKitConfigVoicepoint {
     native <methods>;
     void log(long, int, byte[]);
     void statistics(long, int, float, float, long , double, double, double);

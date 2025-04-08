@@ -132,7 +132,7 @@ public abstract class AbstractSession implements Session {
         this.failStackTrace = null;
         this.logRedirectionStrategy = logRedirectionStrategy;
 
-        FFmpegKitConfig.addSession(this);
+        FFmpegKitConfigVoicepoint.addSession(this);
     }
 
     @Override
@@ -178,7 +178,7 @@ public abstract class AbstractSession implements Session {
 
     @Override
     public String getCommand() {
-        return FFmpegKitConfig.argumentsToString(arguments);
+        return FFmpegKitConfigVoicepoint.argumentsToString(arguments);
     }
 
     @Override
@@ -186,7 +186,7 @@ public abstract class AbstractSession implements Session {
         waitForAsynchronousMessagesInTransmit(waitTimeout);
 
         if (thereAreAsynchronousMessagesInTransmit()) {
-            android.util.Log.i(FFmpegKitConfig.TAG, String.format("getAllLogs was called to return all logs but there are still logs being transmitted for session id %d.", sessionId));
+            android.util.Log.i(FFmpegKitConfigVoicepoint.TAG, String.format("getAllLogs was called to return all logs but there are still logs being transmitted for session id %d.", sessionId));
         }
 
         return getLogs();
@@ -216,7 +216,7 @@ public abstract class AbstractSession implements Session {
         waitForAsynchronousMessagesInTransmit(waitTimeout);
 
         if (thereAreAsynchronousMessagesInTransmit()) {
-            android.util.Log.i(FFmpegKitConfig.TAG, String.format("getAllLogsAsString was called to return all logs but there are still logs being transmitted for session id %d.", sessionId));
+            android.util.Log.i(FFmpegKitConfigVoicepoint.TAG, String.format("getAllLogsAsString was called to return all logs but there are still logs being transmitted for session id %d.", sessionId));
         }
 
         return getLogsAsString();
@@ -274,7 +274,7 @@ public abstract class AbstractSession implements Session {
 
     @Override
     public boolean thereAreAsynchronousMessagesInTransmit() {
-        return (FFmpegKitConfig.messagesInTransmit(sessionId) != 0);
+        return (FFmpegKitConfigVoicepoint.messagesInTransmit(sessionId) != 0);
     }
 
     @Override

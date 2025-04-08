@@ -41,24 +41,24 @@ public class AsyncGetMediaInformationTask implements Runnable {
 
     @Override
     public void run() {
-        FFmpegKitConfig.getMediaInformationExecute(mediaInformationSession, waitTimeout);
+        FFmpegKitConfigVoicepoint.getMediaInformationExecute(mediaInformationSession, waitTimeout);
 
         if (completeCallback != null) {
             try {
                 // NOTIFY SESSION CALLBACK DEFINED
                 completeCallback.apply(mediaInformationSession);
             } catch (final Exception e) {
-                android.util.Log.e(FFmpegKitConfig.TAG, String.format("Exception thrown inside session complete callback.%s", Exceptions.getStackTraceString(e)));
+                android.util.Log.e(FFmpegKitConfigVoicepoint.TAG, String.format("Exception thrown inside session complete callback.%s", Exceptions.getStackTraceString(e)));
             }
         }
 
-        final MediaInformationSessionCompleteCallback globalMediaInformationSessionCompleteCallback = FFmpegKitConfig.getMediaInformationSessionCompleteCallback();
+        final MediaInformationSessionCompleteCallback globalMediaInformationSessionCompleteCallback = FFmpegKitConfigVoicepoint.getMediaInformationSessionCompleteCallback();
         if (globalMediaInformationSessionCompleteCallback != null) {
             try {
                 // NOTIFY GLOBAL CALLBACK DEFINEDs
                 globalMediaInformationSessionCompleteCallback.apply(mediaInformationSession);
             } catch (final Exception e) {
-                android.util.Log.e(FFmpegKitConfig.TAG, String.format("Exception thrown inside global complete callback.%s", Exceptions.getStackTraceString(e)));
+                android.util.Log.e(FFmpegKitConfigVoicepoint.TAG, String.format("Exception thrown inside global complete callback.%s", Exceptions.getStackTraceString(e)));
             }
         }
     }

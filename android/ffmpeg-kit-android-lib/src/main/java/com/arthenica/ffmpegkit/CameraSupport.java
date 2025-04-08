@@ -31,7 +31,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static android.content.Context.CAMERA_SERVICE;
-import static com.arthenica.ffmpegkit.FFmpegKitConfig.TAG;
+import static com.arthenica.ffmpegkit.FFmpegKitConfigVoicepoint.TAG;
 
 /**
  * <p>Helper class to detect camera devices that can be used in

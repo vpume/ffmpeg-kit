@@ -39,7 +39,7 @@ public class FFmpegKit {
 
     static {
         AbiDetect.class.getName();
-        FFmpegKitConfig.class.getName();
+        FFmpegKitConfigVoicepoint.class.getName();
     }
 
     /**
@@ -57,7 +57,7 @@ public class FFmpegKit {
     public static FFmpegSession executeWithArguments(final String[] arguments) {
         final FFmpegSession session = FFmpegSession.create(arguments);
 
-        FFmpegKitConfig.ffmpegExecute(session);
+        FFmpegKitConfigVoicepoint.ffmpegExecute(session);
 
         return session;
     }
@@ -77,7 +77,7 @@ public class FFmpegKit {
                                                           final FFmpegSessionCompleteCallback completeCallback) {
         final FFmpegSession session = FFmpegSession.create(arguments, completeCallback);
 
-        FFmpegKitConfig.asyncFFmpegExecute(session);
+        FFmpegKitConfigVoicepoint.asyncFFmpegExecute(session);
 
         return session;
     }
@@ -101,7 +101,7 @@ public class FFmpegKit {
                                                           final StatisticsCallback statisticsCallback) {
         final FFmpegSession session = FFmpegSession.create(arguments, completeCallback, logCallback, statisticsCallback);
 
-        FFmpegKitConfig.asyncFFmpegExecute(session);
+        FFmpegKitConfigVoicepoint.asyncFFmpegExecute(session);
 
         return session;
     }
@@ -123,7 +123,7 @@ public class FFmpegKit {
                                                           final ExecutorService executorService) {
         final FFmpegSession session = FFmpegSession.create(arguments, completeCallback);
 
-        FFmpegKitConfig.asyncFFmpegExecute(session, executorService);
+        FFmpegKitConfigVoicepoint.asyncFFmpegExecute(session, executorService);
 
         return session;
     }
@@ -150,7 +150,7 @@ public class FFmpegKit {
                                                           final ExecutorService executorService) {
         final FFmpegSession session = FFmpegSession.create(arguments, completeCallback, logCallback, statisticsCallback);
 
-        FFmpegKitConfig.asyncFFmpegExecute(session, executorService);
+        FFmpegKitConfigVoicepoint.asyncFFmpegExecute(session, executorService);
 
         return session;
     }
@@ -164,7 +164,7 @@ public class FFmpegKit {
      * @return FFmpeg session created for this execution
      */
     public static FFmpegSession execute(final String command) {
-        return executeWithArguments(FFmpegKitConfig.parseArguments(command));
+        return executeWithArguments(FFmpegKitConfigVoicepoint.parseArguments(command));
     }
 
     /**
@@ -182,7 +182,7 @@ public class FFmpegKit {
      */
     public static FFmpegSession executeAsync(final String command,
                                              final FFmpegSessionCompleteCallback completeCallback) {
-        return executeWithArgumentsAsync(FFmpegKitConfig.parseArguments(command), completeCallback);
+        return executeWithArgumentsAsync(FFmpegKitConfigVoicepoint.parseArguments(command), completeCallback);
     }
 
     /**
@@ -204,7 +204,7 @@ public class FFmpegKit {
                                              final FFmpegSessionCompleteCallback completeCallback,
                                              final LogCallback logCallback,
                                              final StatisticsCallback statisticsCallback) {
-        return executeWithArgumentsAsync(FFmpegKitConfig.parseArguments(command), completeCallback, logCallback, statisticsCallback);
+        return executeWithArgumentsAsync(FFmpegKitConfigVoicepoint.parseArguments(command), completeCallback, logCallback, statisticsCallback);
     }
 
     /**
@@ -224,9 +224,9 @@ public class FFmpegKit {
     public static FFmpegSession executeAsync(final String command,
                                              final FFmpegSessionCompleteCallback completeCallback,
                                              final ExecutorService executorService) {
-        final FFmpegSession session = FFmpegSession.create(FFmpegKitConfig.parseArguments(command), completeCallback);
+        final FFmpegSession session = FFmpegSession.create(FFmpegKitConfigVoicepoint.parseArguments(command), completeCallback);
 
-        FFmpegKitConfig.asyncFFmpegExecute(session, executorService);
+        FFmpegKitConfigVoicepoint.asyncFFmpegExecute(session, executorService);
 
         return session;
     }
@@ -252,9 +252,9 @@ public class FFmpegKit {
                                              final LogCallback logCallback,
                                              final StatisticsCallback statisticsCallback,
                                              final ExecutorService executorService) {
-        final FFmpegSession session = FFmpegSession.create(FFmpegKitConfig.parseArguments(command), completeCallback, logCallback, statisticsCallback);
+        final FFmpegSession session = FFmpegSession.create(FFmpegKitConfigVoicepoint.parseArguments(command), completeCallback, logCallback, statisticsCallback);
 
-        FFmpegKitConfig.asyncFFmpegExecute(session, executorService);
+        FFmpegKitConfigVoicepoint.asyncFFmpegExecute(session, executorService);
 
         return session;
     }
@@ -271,7 +271,7 @@ public class FFmpegKit {
          * WHEN IT IS PASSED TO THIS METHOD, A SIGINT IS GENERATED WHICH CANCELS ALL ONGOING
          * SESSIONS
          */
-        FFmpegKitConfig.nativeFFmpegCancel(0);
+        FFmpegKitConfigVoicepoint.nativeFFmpegCancel(0);
     }
 
     /**
@@ -282,7 +282,7 @@ public class FFmpegKit {
      * @param sessionId id of the session that will be cancelled
      */
     public static void cancel(final long sessionId) {
-        FFmpegKitConfig.nativeFFmpegCancel(sessionId);
+        FFmpegKitConfigVoicepoint.nativeFFmpegCancel(sessionId);
     }
 
     /**
@@ -291,7 +291,7 @@ public class FFmpegKit {
      * @return all FFmpeg sessions in the session history
      */
     public static List<FFmpegSession> listSessions() {
-        return FFmpegKitConfig.getFFmpegSessions();
+        return FFmpegKitConfigVoicepoint.getFFmpegSessions();
     }
 
 }
