@@ -30,7 +30,7 @@ import androidx.annotation.Nullable;
 import com.arthenica.ffmpegkit.AbiDetect;
 import com.arthenica.ffmpegkit.AbstractSession;
 import com.arthenica.ffmpegkit.FFmpegKit;
-import com.arthenica.ffmpegkit.FFmpegKitConfigVoicepoint;
+import com.arthenica.ffmpegkit.FFmpegKitConfig;
 import com.arthenica.ffmpegkit.FFmpegSession;
 import com.arthenica.ffmpegkit.FFprobeKit;
 import com.arthenica.ffmpegkit.FFprobeSession;
@@ -150,29 +150,29 @@ public class FFmpegKitReactNativeModule extends ReactContextBaseJavaModule {
   }
 
   protected void registerGlobalCallbacks(final ReactApplicationContext reactContext) {
-    FFmpegKitConfigVoicepoint.enableFFmpegSessionCompleteCallback(session -> {
+    FFmpegKitConfig.enableFFmpegSessionCompleteCallback(session -> {
       final DeviceEventManagerModule.RCTDeviceEventEmitter jsModule = reactContext.getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class);
       jsModule.emit(EVENT_COMPLETE_CALLBACK_EVENT, toMap(session));
     });
 
-    FFmpegKitConfigVoicepoint.enableFFprobeSessionCompleteCallback(session -> {
+    FFmpegKitConfig.enableFFprobeSessionCompleteCallback(session -> {
       final DeviceEventManagerModule.RCTDeviceEventEmitter jsModule = reactContext.getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class);
       jsModule.emit(EVENT_COMPLETE_CALLBACK_EVENT, toMap(session));
     });
 
-    FFmpegKitConfigVoicepoint.enableMediaInformationSessionCompleteCallback(session -> {
+    FFmpegKitConfig.enableMediaInformationSessionCompleteCallback(session -> {
       final DeviceEventManagerModule.RCTDeviceEventEmitter jsModule = reactContext.getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class);
       jsModule.emit(EVENT_COMPLETE_CALLBACK_EVENT, toMap(session));
     });
 
-    FFmpegKitConfigVoicepoint.enableLogCallback(log -> {
+    FFmpegKitConfig.enableLogCallback(log -> {
       if (logsEnabled.get()) {
         final DeviceEventManagerModule.RCTDeviceEventEmitter jsModule = reactContext.getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class);
         jsModule.emit(EVENT_LOG_CALLBACK_EVENT, toMap(log));
       }
     });
 
-    FFmpegKitConfigVoicepoint.enableStatisticsCallback(statistics -> {
+    FFmpegKitConfig.enableStatisticsCallback(statistics -> {
       if (statisticsEnabled.get()) {
         final DeviceEventManagerModule.RCTDeviceEventEmitter jsModule = reactContext.getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class);
         jsModule.emit(EVENT_STATISTICS_CALLBACK_EVENT, toMap(statistics));
@@ -185,7 +185,7 @@ public class FFmpegKitReactNativeModule extends ReactContextBaseJavaModule {
   @ReactMethod
   public void abstractSessionGetEndTime(final Double sessionId, final Promise promise) {
     if (sessionId != null) {
-      Session session = FFmpegKitConfigVoicepoint.getSession(sessionId.longValue());
+      Session session = FFmpegKitConfig.getSession(sessionId.longValue());
       if (session == null) {
         promise.reject("SESSION_NOT_FOUND", "Session not found.");
       } else {
@@ -204,7 +204,7 @@ public class FFmpegKitReactNativeModule extends ReactContextBaseJavaModule {
   @ReactMethod
   public void abstractSessionGetDuration(final Double sessionId, final Promise promise) {
     if (sessionId != null) {
-      Session session = FFmpegKitConfigVoicepoint.getSession(sessionId.longValue());
+      Session session = FFmpegKitConfig.getSession(sessionId.longValue());
       if (session == null) {
         promise.reject("SESSION_NOT_FOUND", "Session not found.");
       } else {
@@ -218,7 +218,7 @@ public class FFmpegKitReactNativeModule extends ReactContextBaseJavaModule {
   @ReactMethod
   public void abstractSessionGetAllLogs(final Double sessionId, final Double waitTimeout, final Promise promise) {
     if (sessionId != null) {
-      Session session = FFmpegKitConfigVoicepoint.getSession(sessionId.longValue());
+      Session session = FFmpegKitConfig.getSession(sessionId.longValue());
       if (session == null) {
         promise.reject("SESSION_NOT_FOUND", "Session not found.");
       } else {
@@ -239,7 +239,7 @@ public class FFmpegKitReactNativeModule extends ReactContextBaseJavaModule {
   @ReactMethod
   public void abstractSessionGetLogs(final Double sessionId, final Promise promise) {
     if (sessionId != null) {
-      Session session = FFmpegKitConfigVoicepoint.getSession(sessionId.longValue());
+      Session session = FFmpegKitConfig.getSession(sessionId.longValue());
       if (session == null) {
         promise.reject("SESSION_NOT_FOUND", "Session not found.");
       } else {
@@ -254,7 +254,7 @@ public class FFmpegKitReactNativeModule extends ReactContextBaseJavaModule {
   @ReactMethod
   public void abstractSessionGetAllLogsAsString(final Double sessionId, final Double waitTimeout, final Promise promise) {
     if (sessionId != null) {
-      Session session = FFmpegKitConfigVoicepoint.getSession(sessionId.longValue());
+      Session session = FFmpegKitConfig.getSession(sessionId.longValue());
       if (session == null) {
         promise.reject("SESSION_NOT_FOUND", "Session not found.");
       } else {
@@ -275,7 +275,7 @@ public class FFmpegKitReactNativeModule extends ReactContextBaseJavaModule {
   @ReactMethod
   public void abstractSessionGetState(final Double sessionId, final Promise promise) {
     if (sessionId != null) {
-      Session session = FFmpegKitConfigVoicepoint.getSession(sessionId.longValue());
+      Session session = FFmpegKitConfig.getSession(sessionId.longValue());
       if (session == null) {
         promise.reject("SESSION_NOT_FOUND", "Session not found.");
       } else {
@@ -289,7 +289,7 @@ public class FFmpegKitReactNativeModule extends ReactContextBaseJavaModule {
   @ReactMethod
   public void abstractSessionGetReturnCode(final Double sessionId, final Promise promise) {
     if (sessionId != null) {
-      Session session = FFmpegKitConfigVoicepoint.getSession(sessionId.longValue());
+      Session session = FFmpegKitConfig.getSession(sessionId.longValue());
       if (session == null) {
         promise.reject("SESSION_NOT_FOUND", "Session not found.");
       } else {
@@ -308,7 +308,7 @@ public class FFmpegKitReactNativeModule extends ReactContextBaseJavaModule {
   @ReactMethod
   public void abstractSessionGetFailStackTrace(final Double sessionId, final Promise promise) {
     if (sessionId != null) {
-      Session session = FFmpegKitConfigVoicepoint.getSession(sessionId.longValue());
+      Session session = FFmpegKitConfig.getSession(sessionId.longValue());
       if (session == null) {
         promise.reject("SESSION_NOT_FOUND", "Session not found.");
       } else {
@@ -322,7 +322,7 @@ public class FFmpegKitReactNativeModule extends ReactContextBaseJavaModule {
   @ReactMethod
   public void thereAreAsynchronousMessagesInTransmit(final Double sessionId, final Promise promise) {
     if (sessionId != null) {
-      Session session = FFmpegKitConfigVoicepoint.getSession(sessionId.longValue());
+      Session session = FFmpegKitConfig.getSession(sessionId.longValue());
       if (session == null) {
         promise.reject("SESSION_NOT_FOUND", "Session not found.");
       } else {
@@ -350,7 +350,7 @@ public class FFmpegKitReactNativeModule extends ReactContextBaseJavaModule {
   @ReactMethod
   public void ffmpegSessionGetAllStatistics(final Double sessionId, final Double waitTimeout, final Promise promise) {
     if (sessionId != null) {
-      Session session = FFmpegKitConfigVoicepoint.getSession(sessionId.longValue());
+      Session session = FFmpegKitConfig.getSession(sessionId.longValue());
       if (session == null) {
         promise.reject("SESSION_NOT_FOUND", "Session not found.");
       } else {
@@ -375,7 +375,7 @@ public class FFmpegKitReactNativeModule extends ReactContextBaseJavaModule {
   @ReactMethod
   public void ffmpegSessionGetStatistics(final Double sessionId, final Promise promise) {
     if (sessionId != null) {
-      Session session = FFmpegKitConfigVoicepoint.getSession(sessionId.longValue());
+      Session session = FFmpegKitConfig.getSession(sessionId.longValue());
       if (session == null) {
         promise.reject("SESSION_NOT_FOUND", "Session not found.");
       } else {
@@ -429,20 +429,20 @@ public class FFmpegKitReactNativeModule extends ReactContextBaseJavaModule {
     }
   }
 
-  // FFmpegKitConfigVoicepoint
+  // FFmpegKitConfig
 
   @ReactMethod
   public void enableRedirection(final Promise promise) {
     enableLogs();
     enableStatistics();
-    FFmpegKitConfigVoicepoint.enableRedirection();
+    FFmpegKitConfig.enableRedirection();
 
     promise.resolve(null);
   }
 
   @ReactMethod
   public void disableRedirection(final Promise promise) {
-    FFmpegKitConfigVoicepoint.disableRedirection();
+    FFmpegKitConfig.disableRedirection();
 
     promise.resolve(null);
   }
@@ -477,7 +477,7 @@ public class FFmpegKitReactNativeModule extends ReactContextBaseJavaModule {
 
   @ReactMethod
   public void setFontconfigConfigurationPath(final String path, final Promise promise) {
-    FFmpegKitConfigVoicepoint.setFontconfigConfigurationPath(path);
+    FFmpegKitConfig.setFontconfigConfigurationPath(path);
 
     promise.resolve(null);
   }
@@ -486,7 +486,7 @@ public class FFmpegKitReactNativeModule extends ReactContextBaseJavaModule {
   public void setFontDirectory(final String fontDirectoryPath, final ReadableMap fontNameMap, final Promise promise) {
     final ReactApplicationContext reactContext = getReactApplicationContext();
     if (reactContext != null) {
-      FFmpegKitConfigVoicepoint.setFontDirectory(reactContext, fontDirectoryPath, toMap(fontNameMap));
+      FFmpegKitConfig.setFontDirectory(reactContext, fontDirectoryPath, toMap(fontNameMap));
       promise.resolve(null);
     } else {
       promise.reject("INVALID_CONTEXT", "React context is not initialized.");
@@ -497,7 +497,7 @@ public class FFmpegKitReactNativeModule extends ReactContextBaseJavaModule {
   public void setFontDirectoryList(final ReadableArray readableArray, final ReadableMap fontNameMap, final Promise promise) {
     final ReactApplicationContext reactContext = getReactApplicationContext();
     if (reactContext != null) {
-      FFmpegKitConfigVoicepoint.setFontDirectoryList(reactContext, Arrays.asList(toArgumentsArray(readableArray)), toMap(fontNameMap));
+      FFmpegKitConfig.setFontDirectoryList(reactContext, Arrays.asList(toArgumentsArray(readableArray)), toMap(fontNameMap));
       promise.resolve(null);
     } else {
       promise.reject("INVALID_CONTEXT", "React context is not initialized.");
@@ -508,7 +508,7 @@ public class FFmpegKitReactNativeModule extends ReactContextBaseJavaModule {
   public void registerNewFFmpegPipe(final Promise promise) {
     final ReactApplicationContext reactContext = getReactApplicationContext();
     if (reactContext != null) {
-      promise.resolve(FFmpegKitConfigVoicepoint.registerNewFFmpegPipe(reactContext));
+      promise.resolve(FFmpegKitConfig.registerNewFFmpegPipe(reactContext));
     } else {
       promise.reject("INVALID_CONTEXT", "React context is not initialized.");
     }
@@ -516,29 +516,29 @@ public class FFmpegKitReactNativeModule extends ReactContextBaseJavaModule {
 
   @ReactMethod
   public void closeFFmpegPipe(final String ffmpegPipePath, final Promise promise) {
-    FFmpegKitConfigVoicepoint.closeFFmpegPipe(ffmpegPipePath);
+    FFmpegKitConfig.closeFFmpegPipe(ffmpegPipePath);
 
     promise.resolve(null);
   }
 
   @ReactMethod
   public void getFFmpegVersion(final Promise promise) {
-    promise.resolve(FFmpegKitConfigVoicepoint.getFFmpegVersion());
+    promise.resolve(FFmpegKitConfig.getFFmpegVersion());
   }
 
   @ReactMethod
   public void isLTSBuild(final Promise promise) {
-    promise.resolve(FFmpegKitConfigVoicepoint.isLTSBuild());
+    promise.resolve(FFmpegKitConfig.isLTSBuild());
   }
 
   @ReactMethod
   public void getBuildDate(final Promise promise) {
-    promise.resolve(FFmpegKitConfigVoicepoint.getBuildDate());
+    promise.resolve(FFmpegKitConfig.getBuildDate());
   }
 
   @ReactMethod
   public void setEnvironmentVariable(final String variableName, final String variableValue, final Promise promise) {
-    FFmpegKitConfigVoicepoint.setEnvironmentVariable(variableName, variableValue);
+    FFmpegKitConfig.setEnvironmentVariable(variableName, variableValue);
 
     promise.resolve(null);
   }
@@ -560,7 +560,7 @@ public class FFmpegKitReactNativeModule extends ReactContextBaseJavaModule {
     }
 
     if (signal != null) {
-      FFmpegKitConfigVoicepoint.ignoreSignal(signal);
+      FFmpegKitConfig.ignoreSignal(signal);
 
       promise.resolve(null);
     } else {
@@ -571,7 +571,7 @@ public class FFmpegKitReactNativeModule extends ReactContextBaseJavaModule {
   @ReactMethod
   public void ffmpegSessionExecute(final Double sessionId, final Promise promise) {
     if (sessionId != null) {
-      Session session = FFmpegKitConfigVoicepoint.getSession(sessionId.longValue());
+      Session session = FFmpegKitConfig.getSession(sessionId.longValue());
       if (session == null) {
         promise.reject("SESSION_NOT_FOUND", "Session not found.");
       } else {
@@ -590,7 +590,7 @@ public class FFmpegKitReactNativeModule extends ReactContextBaseJavaModule {
   @ReactMethod
   public void ffprobeSessionExecute(final Double sessionId, final Promise promise) {
     if (sessionId != null) {
-      Session session = FFmpegKitConfigVoicepoint.getSession(sessionId.longValue());
+      Session session = FFmpegKitConfig.getSession(sessionId.longValue());
       if (session == null) {
         promise.reject("SESSION_NOT_FOUND", "Session not found.");
       } else {
@@ -609,7 +609,7 @@ public class FFmpegKitReactNativeModule extends ReactContextBaseJavaModule {
   @ReactMethod
   public void mediaInformationSessionExecute(final Double sessionId, final Double waitTimeout, final Promise promise) {
     if (sessionId != null) {
-      Session session = FFmpegKitConfigVoicepoint.getSession(sessionId.longValue());
+      Session session = FFmpegKitConfig.getSession(sessionId.longValue());
       if (session == null) {
         promise.reject("SESSION_NOT_FOUND", "Session not found.");
       } else {
@@ -634,12 +634,12 @@ public class FFmpegKitReactNativeModule extends ReactContextBaseJavaModule {
   @ReactMethod
   public void asyncFFmpegSessionExecute(final Double sessionId, final Promise promise) {
     if (sessionId != null) {
-      Session session = FFmpegKitConfigVoicepoint.getSession(sessionId.longValue());
+      Session session = FFmpegKitConfig.getSession(sessionId.longValue());
       if (session == null) {
         promise.reject("SESSION_NOT_FOUND", "Session not found.");
       } else {
         if (session.isFFmpeg()) {
-          FFmpegKitConfigVoicepoint.asyncFFmpegExecute((FFmpegSession) session);
+          FFmpegKitConfig.asyncFFmpegExecute((FFmpegSession) session);
           promise.resolve(null);
         } else {
           promise.reject("NOT_FFMPEG_SESSION", "A session is found but it does not have the correct type.");
@@ -653,12 +653,12 @@ public class FFmpegKitReactNativeModule extends ReactContextBaseJavaModule {
   @ReactMethod
   public void asyncFFprobeSessionExecute(final Double sessionId, final Promise promise) {
     if (sessionId != null) {
-      Session session = FFmpegKitConfigVoicepoint.getSession(sessionId.longValue());
+      Session session = FFmpegKitConfig.getSession(sessionId.longValue());
       if (session == null) {
         promise.reject("SESSION_NOT_FOUND", "Session not found.");
       } else {
         if (session.isFFprobe()) {
-          FFmpegKitConfigVoicepoint.asyncFFprobeExecute((FFprobeSession) session);
+          FFmpegKitConfig.asyncFFprobeExecute((FFprobeSession) session);
           promise.resolve(null);
         } else {
           promise.reject("NOT_FFPROBE_SESSION", "A session is found but it does not have the correct type.");
@@ -672,7 +672,7 @@ public class FFmpegKitReactNativeModule extends ReactContextBaseJavaModule {
   @ReactMethod
   public void asyncMediaInformationSessionExecute(final Double sessionId, final Double waitTimeout, final Promise promise) {
     if (sessionId != null) {
-      Session session = FFmpegKitConfigVoicepoint.getSession(sessionId.longValue());
+      Session session = FFmpegKitConfig.getSession(sessionId.longValue());
       if (session == null) {
         promise.reject("SESSION_NOT_FOUND", "Session not found.");
       } else {
@@ -683,7 +683,7 @@ public class FFmpegKitReactNativeModule extends ReactContextBaseJavaModule {
           } else {
             timeout = AbstractSession.DEFAULT_TIMEOUT_FOR_ASYNCHRONOUS_MESSAGES_IN_TRANSMIT;
           }
-          FFmpegKitConfigVoicepoint.asyncGetMediaInformationExecute((MediaInformationSession) session, timeout);
+          FFmpegKitConfig.asyncGetMediaInformationExecute((MediaInformationSession) session, timeout);
           promise.resolve(null);
         } else {
           promise.reject("NOT_MEDIA_INFORMATION_SESSION", "A session is found but it does not have the correct type.");
@@ -696,13 +696,13 @@ public class FFmpegKitReactNativeModule extends ReactContextBaseJavaModule {
 
   @ReactMethod
   public void getLogLevel(final Promise promise) {
-    promise.resolve(toInt(FFmpegKitConfigVoicepoint.getLogLevel()));
+    promise.resolve(toInt(FFmpegKitConfig.getLogLevel()));
   }
 
   @ReactMethod
   public void setLogLevel(final Double level, final Promise promise) {
     if (level != null) {
-      FFmpegKitConfigVoicepoint.setLogLevel(Level.from(level.intValue()));
+      FFmpegKitConfig.setLogLevel(Level.from(level.intValue()));
       promise.resolve(null);
     } else {
       promise.reject("INVALID_LEVEL", "Invalid level value.");
@@ -711,13 +711,13 @@ public class FFmpegKitReactNativeModule extends ReactContextBaseJavaModule {
 
   @ReactMethod
   public void getSessionHistorySize(final Promise promise) {
-    promise.resolve(FFmpegKitConfigVoicepoint.getSessionHistorySize());
+    promise.resolve(FFmpegKitConfig.getSessionHistorySize());
   }
 
   @ReactMethod
   public void setSessionHistorySize(final Double sessionHistorySize, final Promise promise) {
     if (sessionHistorySize != null) {
-      FFmpegKitConfigVoicepoint.setSessionHistorySize(sessionHistorySize.intValue());
+      FFmpegKitConfig.setSessionHistorySize(sessionHistorySize.intValue());
       promise.resolve(null);
     } else {
       promise.reject("INVALID_SIZE", "Invalid session history size value.");
@@ -727,7 +727,7 @@ public class FFmpegKitReactNativeModule extends ReactContextBaseJavaModule {
   @ReactMethod
   public void getSession(final Double sessionId, final Promise promise) {
     if (sessionId != null) {
-      final Session session = FFmpegKitConfigVoicepoint.getSession(sessionId.longValue());
+      final Session session = FFmpegKitConfig.getSession(sessionId.longValue());
       if (session == null) {
         promise.reject("SESSION_NOT_FOUND", "Session not found.");
       } else {
@@ -740,31 +740,31 @@ public class FFmpegKitReactNativeModule extends ReactContextBaseJavaModule {
 
   @ReactMethod
   public void getLastSession(final Promise promise) {
-    final Session session = FFmpegKitConfigVoicepoint.getLastSession();
+    final Session session = FFmpegKitConfig.getLastSession();
     promise.resolve(toMap(session));
   }
 
   @ReactMethod
   public void getLastCompletedSession(final Promise promise) {
-    final Session session = FFmpegKitConfigVoicepoint.getLastCompletedSession();
+    final Session session = FFmpegKitConfig.getLastCompletedSession();
     promise.resolve(toMap(session));
   }
 
   @ReactMethod
   public void getSessions(final Promise promise) {
-    promise.resolve(toSessionArray(FFmpegKitConfigVoicepoint.getSessions()));
+    promise.resolve(toSessionArray(FFmpegKitConfig.getSessions()));
   }
 
   @ReactMethod
   public void clearSessions(final Promise promise) {
-    FFmpegKitConfigVoicepoint.clearSessions();
+    FFmpegKitConfig.clearSessions();
     promise.resolve(null);
   }
 
   @ReactMethod
   public void getSessionsByState(final Double sessionState, final Promise promise) {
     if (sessionState != null) {
-      promise.resolve(toSessionArray(FFmpegKitConfigVoicepoint.getSessionsByState(toSessionState(sessionState.intValue()))));
+      promise.resolve(toSessionArray(FFmpegKitConfig.getSessionsByState(toSessionState(sessionState.intValue()))));
     } else {
       promise.reject("INVALID_SESSION_STATE", "Invalid session state value.");
     }
@@ -772,13 +772,13 @@ public class FFmpegKitReactNativeModule extends ReactContextBaseJavaModule {
 
   @ReactMethod
   public void getLogRedirectionStrategy(final Promise promise) {
-    promise.resolve(toInt(FFmpegKitConfigVoicepoint.getLogRedirectionStrategy()));
+    promise.resolve(toInt(FFmpegKitConfig.getLogRedirectionStrategy()));
   }
 
   @ReactMethod
   public void setLogRedirectionStrategy(final Double logRedirectionStrategy, final Promise promise) {
     if (logRedirectionStrategy != null) {
-      FFmpegKitConfigVoicepoint.setLogRedirectionStrategy(toLogRedirectionStrategy(logRedirectionStrategy.intValue()));
+      FFmpegKitConfig.setLogRedirectionStrategy(toLogRedirectionStrategy(logRedirectionStrategy.intValue()));
       promise.resolve(null);
     } else {
       promise.reject("INVALID_LOG_REDIRECTION_STRATEGY", "Invalid log redirection strategy value.");
@@ -788,7 +788,7 @@ public class FFmpegKitReactNativeModule extends ReactContextBaseJavaModule {
   @ReactMethod
   public void messagesInTransmit(final Double sessionId, final Promise promise) {
     if (sessionId != null) {
-      promise.resolve(FFmpegKitConfigVoicepoint.messagesInTransmit(sessionId.longValue()));
+      promise.resolve(FFmpegKitConfig.messagesInTransmit(sessionId.longValue()));
     } else {
       promise.reject("INVALID_SESSION", "Invalid session id.");
     }
@@ -888,7 +888,7 @@ public class FFmpegKitReactNativeModule extends ReactContextBaseJavaModule {
       promise.reject("GET_SAF_PARAMETER_FAILED", "Uri string cannot be parsed.");
     } else {
       final String safParameter;
-      safParameter = FFmpegKitConfigVoicepoint.getSafParameter(reactContext, uri, openMode);
+      safParameter = FFmpegKitConfig.getSafParameter(reactContext, uri, openMode);
 
       Log.d(LIBRARY_NAME, String.format("getSafParameter using parameters uriString: %s, openMode: %s completed with saf parameter: %s.", uriString, openMode, safParameter));
 
@@ -936,7 +936,7 @@ public class FFmpegKitReactNativeModule extends ReactContextBaseJavaModule {
   @ReactMethod
   public void getMediaInformation(final Double sessionId, final Promise promise) {
     if (sessionId != null) {
-      final Session session = FFmpegKitConfigVoicepoint.getSession(sessionId.longValue());
+      final Session session = FFmpegKitConfig.getSession(sessionId.longValue());
       if (session == null) {
         promise.reject("SESSION_NOT_FOUND", "Session not found.");
       } else {

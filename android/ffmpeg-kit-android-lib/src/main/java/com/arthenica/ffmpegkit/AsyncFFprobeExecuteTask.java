@@ -35,24 +35,24 @@ public class AsyncFFprobeExecuteTask implements Runnable {
 
     @Override
     public void run() {
-        FFmpegKitConfigVoicepoint.ffprobeExecute(ffprobeSession);
+        FFmpegKitConfig.ffprobeExecute(ffprobeSession);
 
         if (completeCallback != null) {
             try {
                 // NOTIFY SESSION CALLBACK DEFINED
                 completeCallback.apply(ffprobeSession);
             } catch (final Exception e) {
-                android.util.Log.e(FFmpegKitConfigVoicepoint.TAG, String.format("Exception thrown inside session complete callback.%s", Exceptions.getStackTraceString(e)));
+                android.util.Log.e(FFmpegKitConfig.TAG, String.format("Exception thrown inside session complete callback.%s", Exceptions.getStackTraceString(e)));
             }
         }
 
-        final FFprobeSessionCompleteCallback globalFFprobeSessionCompleteCallback = FFmpegKitConfigVoicepoint.getFFprobeSessionCompleteCallback();
+        final FFprobeSessionCompleteCallback globalFFprobeSessionCompleteCallback = FFmpegKitConfig.getFFprobeSessionCompleteCallback();
         if (globalFFprobeSessionCompleteCallback != null) {
             try {
                 // NOTIFY GLOBAL CALLBACK DEFINED
                 globalFFprobeSessionCompleteCallback.apply(ffprobeSession);
             } catch (final Exception e) {
-                android.util.Log.e(FFmpegKitConfigVoicepoint.TAG, String.format("Exception thrown inside global complete callback.%s", Exceptions.getStackTraceString(e)));
+                android.util.Log.e(FFmpegKitConfig.TAG, String.format("Exception thrown inside global complete callback.%s", Exceptions.getStackTraceString(e)));
             }
         }
     }

@@ -36,7 +36,7 @@ public class FFprobeSession extends AbstractSession implements Session {
      * @return created session
      */
     public static FFprobeSession create(final String[] arguments) {
-        return new FFprobeSession(arguments, null, null, FFmpegKitConfigVoicepoint.getLogRedirectionStrategy());
+        return new FFprobeSession(arguments, null, null, FFmpegKitConfig.getLogRedirectionStrategy());
     }
 
     /**
@@ -47,7 +47,7 @@ public class FFprobeSession extends AbstractSession implements Session {
      * @return created session
      */
     public static FFprobeSession create(final String[] arguments, final FFprobeSessionCompleteCallback completeCallback) {
-        return new FFprobeSession(arguments, completeCallback, null, FFmpegKitConfigVoicepoint.getLogRedirectionStrategy());
+        return new FFprobeSession(arguments, completeCallback, null, FFmpegKitConfig.getLogRedirectionStrategy());
     }
 
     /**
@@ -61,7 +61,7 @@ public class FFprobeSession extends AbstractSession implements Session {
     public static FFprobeSession create(final String[] arguments,
                                         final FFprobeSessionCompleteCallback completeCallback,
                                         final LogCallback logCallback) {
-        return new FFprobeSession(arguments, completeCallback, logCallback, FFmpegKitConfigVoicepoint.getLogRedirectionStrategy());
+        return new FFprobeSession(arguments, completeCallback, logCallback, FFmpegKitConfig.getLogRedirectionStrategy());
     }
 
     /**
@@ -135,7 +135,7 @@ public class FFprobeSession extends AbstractSession implements Session {
         stringBuilder.append(", endTime=");
         stringBuilder.append(endTime);
         stringBuilder.append(", arguments=");
-        stringBuilder.append(FFmpegKitConfigVoicepoint.argumentsToString(arguments));
+        stringBuilder.append(FFmpegKitConfig.argumentsToString(arguments));
         stringBuilder.append(", logs=");
         stringBuilder.append(getLogsAsString());
         stringBuilder.append(", state=");

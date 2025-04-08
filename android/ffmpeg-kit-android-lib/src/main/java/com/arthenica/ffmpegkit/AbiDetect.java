@@ -31,7 +31,7 @@ public class AbiDetect {
 
         /* ALL LIBRARIES LOADED AT STARTUP */
         FFmpegKit.class.getName();
-        FFmpegKitConfigVoicepoint.class.getName();
+        FFmpegKitConfig.class.getName();
         FFprobeKit.class.getName();
     }
 

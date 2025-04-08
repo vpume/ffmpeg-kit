@@ -53,7 +53,7 @@ import java.util.concurrent.atomic.AtomicReference;
 /**
  * <p>Configuration class of <code>FFmpegKit</code> library.
  */
-public class FFmpegKitConfigVoicepoint {
+public class FFmpegKitConfig {
 
     static class SAFProtocolUrl {
         private final Integer safId;
@@ -132,7 +132,7 @@ public class FFmpegKitConfigVoicepoint {
 
     static {
 
-        android.util.Log.i(FFmpegKitConfigVoicepoint.TAG, "Loading ffmpeg-kit. (VOICEPOINT)");
+        android.util.Log.i(FFmpegKitConfig.TAG, "Loading ffmpeg-kit. (VOICEPOINT)");
 
         Exceptions.registerRootPackage("com.arthenica");
 
@@ -174,13 +174,13 @@ public class FFmpegKitConfigVoicepoint {
         safFileDescriptorMap = new SparseArray<>();
         globalLogRedirectionStrategy = LogRedirectionStrategy.PRINT_LOGS_WHEN_NO_CALLBACKS_DEFINED;
 
-        android.util.Log.i(FFmpegKitConfigVoicepoint.TAG, String.format("Loaded ffmpeg-kit-%s-%s-%s-%s.", NativeLoader.loadPackageName(), NativeLoader.loadAbi(), NativeLoader.loadVersion(), NativeLoader.loadBuildDate()));
+        android.util.Log.i(FFmpegKitConfig.TAG, String.format("Loaded ffmpeg-kit-%s-%s-%s-%s.", NativeLoader.loadPackageName(), NativeLoader.loadAbi(), NativeLoader.loadVersion(), NativeLoader.loadBuildDate()));
     }
 
     /**
      * Default constructor hidden.
      */
-    private FFmpegKitConfigVoicepoint() {
+    private FFmpegKitConfig() {
     }
 
     /**
@@ -242,12 +242,12 @@ public class FFmpegKitConfigVoicepoint {
                     // NOTIFY SESSION CALLBACK DEFINED
                     session.getLogCallback().apply(log);
                 } catch (final Exception e) {
-                    android.util.Log.e(FFmpegKitConfigVoicepoint.TAG, String.format("Exception thrown inside session log callback.%s", Exceptions.getStackTraceString(e)));
+                    android.util.Log.e(FFmpegKitConfig.TAG, String.format("Exception thrown inside session log callback.%s", Exceptions.getStackTraceString(e)));
                 }
             }
         }
 
-        final LogCallback globalLogCallbackFunction = FFmpegKitConfigVoicepoint.globalLogCallback;
+        final LogCallback globalLogCallbackFunction = FFmpegKitConfig.globalLogCallback;
         if (globalLogCallbackFunction != null) {
             globalCallbackDefined = true;
 
@@ -255,7 +255,7 @@ public class FFmpegKitConfigVoicepoint {
                 // NOTIFY GLOBAL CALLBACK DEFINED
                 globalLogCallbackFunction.apply(log);
             } catch (final Exception e) {
-                android.util.Log.e(FFmpegKitConfigVoicepoint.TAG, String.format("Exception thrown inside global log callback.%s", Exceptions.getStackTraceString(e)));
+                android.util.Log.e(FFmpegKitConfig.TAG, String.format("Exception thrown inside global log callback.%s", Exceptions.getStackTraceString(e)));
             }
         }
 
@@ -348,18 +348,18 @@ public class FFmpegKitConfigVoicepoint {
                     // NOTIFY SESSION CALLBACK IF DEFINED
                     ffmpegSession.getStatisticsCallback().apply(statistics);
                 } catch (final Exception e) {
-                    android.util.Log.e(FFmpegKitConfigVoicepoint.TAG, String.format("Exception thrown inside session statistics callback.%s", Exceptions.getStackTraceString(e)));
+                    android.util.Log.e(FFmpegKitConfig.TAG, String.format("Exception thrown inside session statistics callback.%s", Exceptions.getStackTraceString(e)));
                 }
             }
         }
 
-        final StatisticsCallback globalStatisticsCallbackFunction = FFmpegKitConfigVoicepoint.globalStatisticsCallback;
+        final StatisticsCallback globalStatisticsCallbackFunction = FFmpegKitConfig.globalStatisticsCallback;
         if (globalStatisticsCallbackFunction != null) {
             try {
                 // NOTIFY GLOBAL CALLBACK IF DEFINED
                 globalStatisticsCallbackFunction.apply(statistics);
             } catch (final Exception e) {
-                android.util.Log.e(FFmpegKitConfigVoicepoint.TAG, String.format("Exception thrown inside global statistics callback.%s", Exceptions.getStackTraceString(e)));
+                android.util.Log.e(FFmpegKitConfig.TAG, String.format("Exception thrown inside global statistics callback.%s", Exceptions.getStackTraceString(e)));
             }
         }
     }
@@ -611,15 +611,15 @@ public class FFmpegKitConfigVoicepoint {
         String remainingString = string;
         do {
             if (remainingString.length() <= LOGGER_ENTRY_MAX_LEN) {
-                android.util.Log.println(logPriority, FFmpegKitConfigVoicepoint.TAG, remainingString);
+                android.util.Log.println(logPriority, FFmpegKitConfig.TAG, remainingString);
                 remainingString = "";
             } else {
                 final int index = remainingString.substring(0, LOGGER_ENTRY_MAX_LEN).lastIndexOf('\n');
                 if (index < 0) {
-                    android.util.Log.println(logPriority, FFmpegKitConfigVoicepoint.TAG, remainingString.substring(0, LOGGER_ENTRY_MAX_LEN));
+                    android.util.Log.println(logPriority, FFmpegKitConfig.TAG, remainingString.substring(0, LOGGER_ENTRY_MAX_LEN));
                     remainingString = remainingString.substring(LOGGER_ENTRY_MAX_LEN);
                 } else {
-                    android.util.Log.println(logPriority, FFmpegKitConfigVoicepoint.TAG, remainingString.substring(0, index));
+                    android.util.Log.println(logPriority, FFmpegKitConfig.TAG, remainingString.substring(0, index));
                     remainingString = remainingString.substring(index);
                 }
             }
@@ -660,7 +660,7 @@ public class FFmpegKitConfigVoicepoint {
             ffmpegSession.complete(new ReturnCode(returnCode));
         } catch (final Exception e) {
             ffmpegSession.fail(e);
-            android.util.Log.w(FFmpegKitConfigVoicepoint.TAG, String.format("FFmpeg execute failed: %s.%s", FFmpegKitConfigVoicepoint.argumentsToString(ffmpegSession.getArguments()), Exceptions.getStackTraceString(e)));
+            android.util.Log.w(FFmpegKitConfig.TAG, String.format("FFmpeg execute failed: %s.%s", FFmpegKitConfig.argumentsToString(ffmpegSession.getArguments()), Exceptions.getStackTraceString(e)));
         }
     }
 
@@ -677,7 +677,7 @@ public class FFmpegKitConfigVoicepoint {
             ffprobeSession.complete(new ReturnCode(returnCode));
         } catch (final Exception e) {
             ffprobeSession.fail(e);
-            android.util.Log.w(FFmpegKitConfigVoicepoint.TAG, String.format("FFprobe execute failed: %s.%s", FFmpegKitConfigVoicepoint.argumentsToString(ffprobeSession.getArguments()), Exceptions.getStackTraceString(e)));
+            android.util.Log.w(FFmpegKitConfig.TAG, String.format("FFprobe execute failed: %s.%s", FFmpegKitConfig.argumentsToString(ffprobeSession.getArguments()), Exceptions.getStackTraceString(e)));
         }
     }
 
@@ -708,7 +708,7 @@ public class FFmpegKitConfigVoicepoint {
             }
         } catch (final Exception e) {
             mediaInformationSession.fail(e);
-            android.util.Log.w(FFmpegKitConfigVoicepoint.TAG, String.format("Get media information execute failed: %s.%s", FFmpegKitConfigVoicepoint.argumentsToString(mediaInformationSession.getArguments()), Exceptions.getStackTraceString(e)));
+            android.util.Log.w(FFmpegKitConfig.TAG, String.format("Get media information execute failed: %s.%s", FFmpegKitConfig.argumentsToString(mediaInformationSession.getArguments()), Exceptions.getStackTraceString(e)));
         }
     }
 
@@ -830,11 +830,11 @@ public class FFmpegKitConfigVoicepoint {
         if (asyncConcurrencyLimit > 0) {
 
             /* SET THE NEW LIMIT */
-            FFmpegKitConfigVoicepoint.asyncConcurrencyLimit = asyncConcurrencyLimit;
-            ExecutorService oldAsyncExecutorService = FFmpegKitConfigVoicepoint.asyncExecutorService;
+            FFmpegKitConfig.asyncConcurrencyLimit = asyncConcurrencyLimit;
+            ExecutorService oldAsyncExecutorService = FFmpegKitConfig.asyncExecutorService;
 
             /* CREATE THE NEW ASYNC THREAD POOL */
-            FFmpegKitConfigVoicepoint.asyncExecutorService = Executors.newFixedThreadPool(asyncConcurrencyLimit);
+            FFmpegKitConfig.asyncExecutorService = Executors.newFixedThreadPool(asyncConcurrencyLimit);
 
             /* STOP THE OLD ASYNC THREAD POOL */
             oldAsyncExecutorService.shutdown();
@@ -986,7 +986,7 @@ public class FFmpegKitConfigVoicepoint {
         final int safId = uniqueIdGenerator.getAndIncrement();
         safIdMap.put(safId, new SAFProtocolUrl(safId, uri, openMode, context.getContentResolver()));
 
-        return "saf:" + safId + "." + FFmpegKitConfigVoicepoint.extractExtensionFromSafDisplayName(displayName);
+        return "saf:" + safId + "." + FFmpegKitConfig.extractExtensionFromSafDisplayName(displayName);
     }
 
     /**
@@ -1093,7 +1093,7 @@ public class FFmpegKitConfigVoicepoint {
              */
             throw new IllegalArgumentException("Session history size must not exceed the hard limit!");
         } else if (sessionHistorySize > 0) {
-            FFmpegKitConfigVoicepoint.sessionHistorySize = sessionHistorySize;
+            FFmpegKitConfig.sessionHistorySize = sessionHistorySize;
             deleteExpiredSessions();
         }
     }
@@ -1294,7 +1294,7 @@ public class FFmpegKitConfigVoicepoint {
      * @param logRedirectionStrategy log redirection strategy
      */
     public static void setLogRedirectionStrategy(final LogRedirectionStrategy logRedirectionStrategy) {
-        FFmpegKitConfigVoicepoint.globalLogRedirectionStrategy = logRedirectionStrategy;
+        FFmpegKitConfig.globalLogRedirectionStrategy = logRedirectionStrategy;
     }
 
     /**

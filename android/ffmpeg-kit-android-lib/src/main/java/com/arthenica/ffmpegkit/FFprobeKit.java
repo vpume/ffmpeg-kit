@@ -43,7 +43,7 @@ public class FFprobeKit {
 
     static {
         AbiDetect.class.getName();
-        FFmpegKitConfigVoicepoint.class.getName();
+        FFmpegKitConfig.class.getName();
     }
 
     /**
@@ -71,7 +71,7 @@ public class FFprobeKit {
     public static FFprobeSession executeWithArguments(final String[] arguments) {
         final FFprobeSession session = FFprobeSession.create(arguments);
 
-        FFmpegKitConfigVoicepoint.ffprobeExecute(session);
+        FFmpegKitConfig.ffprobeExecute(session);
 
         return session;
     }
@@ -91,7 +91,7 @@ public class FFprobeKit {
                                                            final FFprobeSessionCompleteCallback completeCallback) {
         final FFprobeSession session = FFprobeSession.create(arguments, completeCallback);
 
-        FFmpegKitConfigVoicepoint.asyncFFprobeExecute(session);
+        FFmpegKitConfig.asyncFFprobeExecute(session);
 
         return session;
     }
@@ -113,7 +113,7 @@ public class FFprobeKit {
                                                            final LogCallback logCallback) {
         final FFprobeSession session = FFprobeSession.create(arguments, completeCallback, logCallback);
 
-        FFmpegKitConfigVoicepoint.asyncFFprobeExecute(session);
+        FFmpegKitConfig.asyncFFprobeExecute(session);
 
         return session;
     }
@@ -135,7 +135,7 @@ public class FFprobeKit {
                                                            final ExecutorService executorService) {
         final FFprobeSession session = FFprobeSession.create(arguments, completeCallback);
 
-        FFmpegKitConfigVoicepoint.asyncFFprobeExecute(session, executorService);
+        FFmpegKitConfig.asyncFFprobeExecute(session, executorService);
 
         return session;
     }
@@ -159,7 +159,7 @@ public class FFprobeKit {
                                                            final ExecutorService executorService) {
         final FFprobeSession session = FFprobeSession.create(arguments, completeCallback, logCallback);
 
-        FFmpegKitConfigVoicepoint.asyncFFprobeExecute(session, executorService);
+        FFmpegKitConfig.asyncFFprobeExecute(session, executorService);
 
         return session;
     }
@@ -173,7 +173,7 @@ public class FFprobeKit {
      * @return FFprobe session created for this execution
      */
     public static FFprobeSession execute(final String command) {
-        return executeWithArguments(FFmpegKitConfigVoicepoint.parseArguments(command));
+        return executeWithArguments(FFmpegKitConfig.parseArguments(command));
     }
 
     /**
@@ -191,7 +191,7 @@ public class FFprobeKit {
      */
     public static FFprobeSession executeAsync(final String command,
                                               final FFprobeSessionCompleteCallback completeCallback) {
-        return executeWithArgumentsAsync(FFmpegKitConfigVoicepoint.parseArguments(command), completeCallback);
+        return executeWithArgumentsAsync(FFmpegKitConfig.parseArguments(command), completeCallback);
     }
 
     /**
@@ -211,7 +211,7 @@ public class FFprobeKit {
     public static FFprobeSession executeAsync(final String command,
                                               final FFprobeSessionCompleteCallback completeCallback,
                                               final LogCallback logCallback) {
-        return executeWithArgumentsAsync(FFmpegKitConfigVoicepoint.parseArguments(command), completeCallback, logCallback);
+        return executeWithArgumentsAsync(FFmpegKitConfig.parseArguments(command), completeCallback, logCallback);
     }
 
     /**
@@ -231,9 +231,9 @@ public class FFprobeKit {
     public static FFprobeSession executeAsync(final String command,
                                               final FFprobeSessionCompleteCallback completeCallback,
                                               final ExecutorService executorService) {
-        final FFprobeSession session = FFprobeSession.create(FFmpegKitConfigVoicepoint.parseArguments(command), completeCallback);
+        final FFprobeSession session = FFprobeSession.create(FFmpegKitConfig.parseArguments(command), completeCallback);
 
-        FFmpegKitConfigVoicepoint.asyncFFprobeExecute(session, executorService);
+        FFmpegKitConfig.asyncFFprobeExecute(session, executorService);
 
         return session;
     }
@@ -257,9 +257,9 @@ public class FFprobeKit {
                                               final FFprobeSessionCompleteCallback completeCallback,
                                               final LogCallback logCallback,
                                               final ExecutorService executorService) {
-        final FFprobeSession session = FFprobeSession.create(FFmpegKitConfigVoicepoint.parseArguments(command), completeCallback, logCallback);
+        final FFprobeSession session = FFprobeSession.create(FFmpegKitConfig.parseArguments(command), completeCallback, logCallback);
 
-        FFmpegKitConfigVoicepoint.asyncFFprobeExecute(session, executorService);
+        FFmpegKitConfig.asyncFFprobeExecute(session, executorService);
 
         return session;
     }
@@ -273,7 +273,7 @@ public class FFprobeKit {
     public static MediaInformationSession getMediaInformation(final String path) {
         final MediaInformationSession session = MediaInformationSession.create(defaultGetMediaInformationCommandArguments(path));
 
-        FFmpegKitConfigVoicepoint.getMediaInformationExecute(session, AbstractSession.DEFAULT_TIMEOUT_FOR_ASYNCHRONOUS_MESSAGES_IN_TRANSMIT);
+        FFmpegKitConfig.getMediaInformationExecute(session, AbstractSession.DEFAULT_TIMEOUT_FOR_ASYNCHRONOUS_MESSAGES_IN_TRANSMIT);
 
         return session;
     }
@@ -289,7 +289,7 @@ public class FFprobeKit {
                                                               final int waitTimeout) {
         final MediaInformationSession session = MediaInformationSession.create(defaultGetMediaInformationCommandArguments(path));
 
-        FFmpegKitConfigVoicepoint.getMediaInformationExecute(session, waitTimeout);
+        FFmpegKitConfig.getMediaInformationExecute(session, waitTimeout);
 
         return session;
     }
@@ -310,7 +310,7 @@ public class FFprobeKit {
                                                                    final MediaInformationSessionCompleteCallback completeCallback) {
         final MediaInformationSession session = MediaInformationSession.create(defaultGetMediaInformationCommandArguments(path), completeCallback);
 
-        FFmpegKitConfigVoicepoint.asyncGetMediaInformationExecute(session, AbstractSession.DEFAULT_TIMEOUT_FOR_ASYNCHRONOUS_MESSAGES_IN_TRANSMIT);
+        FFmpegKitConfig.asyncGetMediaInformationExecute(session, AbstractSession.DEFAULT_TIMEOUT_FOR_ASYNCHRONOUS_MESSAGES_IN_TRANSMIT);
 
         return session;
     }
@@ -335,7 +335,7 @@ public class FFprobeKit {
                                                                    final int waitTimeout) {
         final MediaInformationSession session = MediaInformationSession.create(defaultGetMediaInformationCommandArguments(path), completeCallback, logCallback);
 
-        FFmpegKitConfigVoicepoint.asyncGetMediaInformationExecute(session, waitTimeout);
+        FFmpegKitConfig.asyncGetMediaInformationExecute(session, waitTimeout);
 
         return session;
     }
@@ -358,7 +358,7 @@ public class FFprobeKit {
                                                                    final ExecutorService executorService) {
         final MediaInformationSession session = MediaInformationSession.create(defaultGetMediaInformationCommandArguments(path), completeCallback);
 
-        FFmpegKitConfigVoicepoint.asyncGetMediaInformationExecute(session, executorService, AbstractSession.DEFAULT_TIMEOUT_FOR_ASYNCHRONOUS_MESSAGES_IN_TRANSMIT);
+        FFmpegKitConfig.asyncGetMediaInformationExecute(session, executorService, AbstractSession.DEFAULT_TIMEOUT_FOR_ASYNCHRONOUS_MESSAGES_IN_TRANSMIT);
 
         return session;
     }
@@ -385,7 +385,7 @@ public class FFprobeKit {
                                                                    final int waitTimeout) {
         final MediaInformationSession session = MediaInformationSession.create(defaultGetMediaInformationCommandArguments(path), completeCallback, logCallback);
 
-        FFmpegKitConfigVoicepoint.asyncGetMediaInformationExecute(session, executorService, waitTimeout);
+        FFmpegKitConfig.asyncGetMediaInformationExecute(session, executorService, waitTimeout);
 
         return session;
     }
@@ -397,9 +397,9 @@ public class FFprobeKit {
      * @return media information session created for this execution
      */
     public static MediaInformationSession getMediaInformationFromCommand(final String command) {
-        final MediaInformationSession session = MediaInformationSession.create(FFmpegKitConfigVoicepoint.parseArguments(command));
+        final MediaInformationSession session = MediaInformationSession.create(FFmpegKitConfig.parseArguments(command));
 
-        FFmpegKitConfigVoicepoint.getMediaInformationExecute(session, AbstractSession.DEFAULT_TIMEOUT_FOR_ASYNCHRONOUS_MESSAGES_IN_TRANSMIT);
+        FFmpegKitConfig.getMediaInformationExecute(session, AbstractSession.DEFAULT_TIMEOUT_FOR_ASYNCHRONOUS_MESSAGES_IN_TRANSMIT);
 
         return session;
     }
@@ -424,7 +424,7 @@ public class FFprobeKit {
                                                                               final MediaInformationSessionCompleteCallback completeCallback,
                                                                               final LogCallback logCallback,
                                                                               final int waitTimeout) {
-        return getMediaInformationFromCommandArgumentsAsync(FFmpegKitConfigVoicepoint.parseArguments(command), completeCallback, logCallback, waitTimeout);
+        return getMediaInformationFromCommandArgumentsAsync(FFmpegKitConfig.parseArguments(command), completeCallback, logCallback, waitTimeout);
     }
 
     /**
@@ -449,7 +449,7 @@ public class FFprobeKit {
                                                                                         final int waitTimeout) {
         final MediaInformationSession session = MediaInformationSession.create(arguments, completeCallback, logCallback);
 
-        FFmpegKitConfigVoicepoint.asyncGetMediaInformationExecute(session, waitTimeout);
+        FFmpegKitConfig.asyncGetMediaInformationExecute(session, waitTimeout);
 
         return session;
     }
@@ -460,7 +460,7 @@ public class FFprobeKit {
      * @return all FFprobe sessions in the session history
      */
     public static List<FFprobeSession> listFFprobeSessions() {
-        return FFmpegKitConfigVoicepoint.getFFprobeSessions();
+        return FFmpegKitConfig.getFFprobeSessions();
     }
 
     /**
@@ -469,7 +469,7 @@ public class FFprobeKit {
      * @return all MediaInformation sessions in the session history
      */
     public static List<MediaInformationSession> listMediaInformationSessions() {
-        return FFmpegKitConfigVoicepoint.getMediaInformationSessions();
+        return FFmpegKitConfig.getMediaInformationSessions();
     }
 
 }

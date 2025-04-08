@@ -88,7 +88,7 @@ public class NativeLoader {
         final String version = "6.0";
 
         if (isTestModeDisabled()) {
-            return FFmpegKitConfigVoicepoint.getVersion();
+            return FFmpegKitConfig.getVersion();
         } else if (loadIsLTSBuild()) {
             return String.format("%s-lts", version);
         } else {
@@ -106,7 +106,7 @@ public class NativeLoader {
 
     static int loadLogLevel() {
         if (isTestModeDisabled()) {
-            return FFmpegKitConfigVoicepoint.getNativeLogLevel();
+            return FFmpegKitConfig.getNativeLogLevel();
         } else {
             return Level.AV_LOG_DEBUG.getValue();
         }
@@ -114,7 +114,7 @@ public class NativeLoader {
 
     static String loadBuildDate() {
         if (isTestModeDisabled()) {
-            return FFmpegKitConfigVoicepoint.getBuildDate();
+            return FFmpegKitConfig.getBuildDate();
         } else {
             return new SimpleDateFormat("yyyyMMdd", Locale.getDefault()).format(new Date());
         }
@@ -122,7 +122,7 @@ public class NativeLoader {
 
     static void enableRedirection() {
         if (isTestModeDisabled()) {
-            FFmpegKitConfigVoicepoint.enableRedirection();
+            FFmpegKitConfig.enableRedirection();
         }
     }
 
@@ -152,7 +152,7 @@ public class NativeLoader {
                     }
                     nativeFFmpegLoaded = true;
                 } catch (final Error e) {
-                    android.util.Log.i(FFmpegKitConfigVoicepoint.TAG, String.format("NEON supported armeabi-v7a ffmpeg library not found. Loading default armeabi-v7a library.%s", Exceptions.getStackTraceString(e)));
+                    android.util.Log.i(FFmpegKitConfig.TAG, String.format("NEON supported armeabi-v7a ffmpeg library not found. Loading default armeabi-v7a library.%s", Exceptions.getStackTraceString(e)));
                     nativeFFmpegTriedAndFailed = true;
                 }
             }
@@ -181,7 +181,7 @@ public class NativeLoader {
                 nativeFFmpegKitLoaded = true;
                 AbiDetect.setArmV7aNeonLoaded();
             } catch (final Error e) {
-                android.util.Log.i(FFmpegKitConfigVoicepoint.TAG, String.format("NEON supported armeabi-v7a ffmpegkit library not found. Loading default armeabi-v7a library.%s", Exceptions.getStackTraceString(e)));
+                android.util.Log.i(FFmpegKitConfig.TAG, String.format("NEON supported armeabi-v7a ffmpegkit library not found. Loading default armeabi-v7a library.%s", Exceptions.getStackTraceString(e)));
             }
         }
 
@@ -205,11 +205,11 @@ public class NativeLoader {
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             stringBuilder.append(", abis: ");
-            stringBuilder.append(FFmpegKitConfigVoicepoint.argumentsToString(Build.SUPPORTED_ABIS));
+            stringBuilder.append(FFmpegKitConfig.argumentsToString(Build.SUPPORTED_ABIS));
             stringBuilder.append(", 32bit abis: ");
-            stringBuilder.append(FFmpegKitConfigVoicepoint.argumentsToString(Build.SUPPORTED_32_BIT_ABIS));
+            stringBuilder.append(FFmpegKitConfig.argumentsToString(Build.SUPPORTED_32_BIT_ABIS));
             stringBuilder.append(", 64bit abis: ");
-            stringBuilder.append(FFmpegKitConfigVoicepoint.argumentsToString(Build.SUPPORTED_64_BIT_ABIS));
+            stringBuilder.append(FFmpegKitConfig.argumentsToString(Build.SUPPORTED_64_BIT_ABIS));
         } else {
             stringBuilder.append(", cpu abis: ");
             stringBuilder.append(Build.CPU_ABI);

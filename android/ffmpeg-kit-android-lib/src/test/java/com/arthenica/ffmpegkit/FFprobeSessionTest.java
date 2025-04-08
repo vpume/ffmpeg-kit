@@ -82,7 +82,7 @@ public class FFprobeSessionTest {
         Assert.assertNull(ffprobeSession.getFailStackTrace());
 
         // 15. getLogRedirectionStrategy
-        Assert.assertEquals(FFmpegKitConfigVoicepoint.getLogRedirectionStrategy(), ffprobeSession.getLogRedirectionStrategy());
+        Assert.assertEquals(FFmpegKitConfig.getLogRedirectionStrategy(), ffprobeSession.getLogRedirectionStrategy());
 
         // 16. getFuture
         Assert.assertNull(ffprobeSession.getFuture());
@@ -149,7 +149,7 @@ public class FFprobeSessionTest {
         Assert.assertNull(ffprobeSession.getFailStackTrace());
 
         // 15. getLogRedirectionStrategy
-        Assert.assertEquals(FFmpegKitConfigVoicepoint.getLogRedirectionStrategy(), ffprobeSession.getLogRedirectionStrategy());
+        Assert.assertEquals(FFmpegKitConfig.getLogRedirectionStrategy(), ffprobeSession.getLogRedirectionStrategy());
 
         // 16. getFuture
         Assert.assertNull(ffprobeSession.getFuture());
@@ -223,7 +223,7 @@ public class FFprobeSessionTest {
         Assert.assertNull(ffprobeSession.getFailStackTrace());
 
         // 15. getLogRedirectionStrategy
-        Assert.assertEquals(FFmpegKitConfigVoicepoint.getLogRedirectionStrategy(), ffprobeSession.getLogRedirectionStrategy());
+        Assert.assertEquals(FFmpegKitConfig.getLogRedirectionStrategy(), ffprobeSession.getLogRedirectionStrategy());
 
         // 16. getFuture
         Assert.assertNull(ffprobeSession.getFuture());
@@ -278,15 +278,15 @@ public class FFprobeSessionTest {
 
     @Test
     public void getLogRedirectionStrategy() {
-        FFmpegKitConfigVoicepoint.setLogRedirectionStrategy(LogRedirectionStrategy.NEVER_PRINT_LOGS);
+        FFmpegKitConfig.setLogRedirectionStrategy(LogRedirectionStrategy.NEVER_PRINT_LOGS);
 
         final FFprobeSession ffprobeSession1 = FFprobeSession.create(TEST_ARGUMENTS);
-        Assert.assertEquals(FFmpegKitConfigVoicepoint.getLogRedirectionStrategy(), ffprobeSession1.getLogRedirectionStrategy());
+        Assert.assertEquals(FFmpegKitConfig.getLogRedirectionStrategy(), ffprobeSession1.getLogRedirectionStrategy());
 
-        FFmpegKitConfigVoicepoint.setLogRedirectionStrategy(LogRedirectionStrategy.PRINT_LOGS_WHEN_SESSION_CALLBACK_NOT_DEFINED);
+        FFmpegKitConfig.setLogRedirectionStrategy(LogRedirectionStrategy.PRINT_LOGS_WHEN_SESSION_CALLBACK_NOT_DEFINED);
 
         final FFprobeSession ffprobeSession2 = FFprobeSession.create(TEST_ARGUMENTS);
-        Assert.assertEquals(FFmpegKitConfigVoicepoint.getLogRedirectionStrategy(), ffprobeSession2.getLogRedirectionStrategy());
+        Assert.assertEquals(FFmpegKitConfig.getLogRedirectionStrategy(), ffprobeSession2.getLogRedirectionStrategy());
     }
 
     @Test

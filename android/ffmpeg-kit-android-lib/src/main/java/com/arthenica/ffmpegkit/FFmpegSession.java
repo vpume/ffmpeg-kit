@@ -54,7 +54,7 @@ public class FFmpegSession extends AbstractSession implements Session {
      * @return created session
      */
     public static FFmpegSession create(final String[] arguments) {
-        return new FFmpegSession(arguments, null, null, null, FFmpegKitConfigVoicepoint.getLogRedirectionStrategy());
+        return new FFmpegSession(arguments, null, null, null, FFmpegKitConfig.getLogRedirectionStrategy());
     }
 
     /**
@@ -65,7 +65,7 @@ public class FFmpegSession extends AbstractSession implements Session {
      * @return created session
      */
     public static FFmpegSession create(final String[] arguments, final FFmpegSessionCompleteCallback completeCallback) {
-        return new FFmpegSession(arguments, completeCallback, null, null, FFmpegKitConfigVoicepoint.getLogRedirectionStrategy());
+        return new FFmpegSession(arguments, completeCallback, null, null, FFmpegKitConfig.getLogRedirectionStrategy());
     }
 
     /**
@@ -81,7 +81,7 @@ public class FFmpegSession extends AbstractSession implements Session {
                                        final FFmpegSessionCompleteCallback completeCallback,
                                        final LogCallback logCallback,
                                        final StatisticsCallback statisticsCallback) {
-        return new FFmpegSession(arguments, completeCallback, logCallback, statisticsCallback, FFmpegKitConfigVoicepoint.getLogRedirectionStrategy());
+        return new FFmpegSession(arguments, completeCallback, logCallback, statisticsCallback, FFmpegKitConfig.getLogRedirectionStrategy());
     }
 
     /**
@@ -154,7 +154,7 @@ public class FFmpegSession extends AbstractSession implements Session {
         waitForAsynchronousMessagesInTransmit(waitTimeout);
 
         if (thereAreAsynchronousMessagesInTransmit()) {
-            android.util.Log.i(FFmpegKitConfigVoicepoint.TAG, String.format("getAllStatistics was called to return all statistics but there are still statistics being transmitted for session id %d.", sessionId));
+            android.util.Log.i(FFmpegKitConfig.TAG, String.format("getAllStatistics was called to return all statistics but there are still statistics being transmitted for session id %d.", sessionId));
         }
 
         return getStatistics();
@@ -241,7 +241,7 @@ public class FFmpegSession extends AbstractSession implements Session {
         stringBuilder.append(", endTime=");
         stringBuilder.append(endTime);
         stringBuilder.append(", arguments=");
-        stringBuilder.append(FFmpegKitConfigVoicepoint.argumentsToString(arguments));
+        stringBuilder.append(FFmpegKitConfig.argumentsToString(arguments));
         stringBuilder.append(", logs=");
         stringBuilder.append(getLogsAsString());
         stringBuilder.append(", state=");

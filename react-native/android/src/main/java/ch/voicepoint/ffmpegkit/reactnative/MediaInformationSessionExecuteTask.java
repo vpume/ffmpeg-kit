@@ -19,7 +19,7 @@
 
 package ch.voicepoint.ffmpegkit.reactnative;
 
-import com.arthenica.ffmpegkit.FFmpegKitConfigVoicepoint;
+import com.arthenica.ffmpegkit.FFmpegKitConfig;
 import com.arthenica.ffmpegkit.MediaInformationSession;
 import com.facebook.react.bridge.Promise;
 
@@ -36,7 +36,7 @@ public class MediaInformationSessionExecuteTask implements Runnable {
 
   @Override
   public void run() {
-    FFmpegKitConfigVoicepoint.getMediaInformationExecute(mediaInformationSession, timeout);
+    FFmpegKitConfig.getMediaInformationExecute(mediaInformationSession, timeout);
     promise.resolve(null);
   }
 }
