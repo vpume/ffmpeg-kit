@@ -4,7 +4,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:8.1.0'
+        classpath 'com.android.tools.build:gradle:8.1.4'
     }
 }
 
@@ -17,9 +17,9 @@ publishing {
         maven(MavenPublication) {
             groupId = 'ch.voicepoint'
             artifactId = 'ffmpeg-kit'
-            version = '6.0.6'
+            version = '6.0.20'
 
-            artifact(file('ch/voicepoint/ffmpeg-kit/6.0.6/ffmpeg-kit.aar')) {
+            artifact(file('ch/voicepoint/ffmpeg-kit/6.0.20/ffmpeg-kit.aar')) {
                 extension = 'aar'
             }
 
@@ -35,8 +35,8 @@ publishing {
             name = "GitHubPackages"     
             url = "https://maven.pkg.github.com/vpume/ffmpeg-kit"
             credentials {
-                username = 'vpume'
-                password = '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' 
+                username = System.getenv("GITHUB_USERNAME")
+                password = System.getenv("GITHUB_PAT")
             }
         }
     }

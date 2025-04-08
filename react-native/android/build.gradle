@@ -5,7 +5,7 @@ buildscript {
   }
 
   dependencies {
-    classpath 'com.android.tools.build:gradle:8.1.0'
+    classpath 'com.android.tools.build:gradle:8.1.4'
   }
 }
 
@@ -13,7 +13,7 @@ apply plugin: 'com.android.library'
 
 android {
   if (project.android.hasProperty("namespace")) {
-    namespace 'ch.voicepoint.ffmpegkit.reactnative'
+    namespace 'com.arthenica.ffmpegkit.reactnative'
   }
 
   compileSdkVersion 33
@@ -22,7 +22,7 @@ android {
     minSdkVersion 24
     targetSdkVersion 33
     versionCode 602
-    versionName "6.0.11"
+    versionName "6.0.20"
   }
 
   buildTypes {
@@ -44,8 +44,8 @@ repositories {
     name = "GitHubPackages"
     url = "https://maven.pkg.github.com/vpume/ffmpeg-kit"
     credentials {
-      username = project.findProperty("gpr.user") ?: System.getenv("GITHUB_ACTOR")
-      password = project.findProperty("gpr.key") ?: System.getenv("GITHUB_TOKEN")
+      username = System.getenv("GITHUB_USERNAME")
+      password = System.getenv("GITHUB_PAT")
     }
   }
 
@@ -120,5 +120,5 @@ repositories {
 
 dependencies {
   api 'com.facebook.react:react-native:+'
-  implementation 'ch.voicepoint:ffmpeg-kit:6.0.6'
+  implementation 'com.arthenica:ffmpeg-kit:6.0.20'
 }
