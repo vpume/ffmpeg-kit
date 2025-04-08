@@ -30,10 +30,11 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-package com.arthenica.smartexception.java;
+package com.arthenica.smartexception;
 
 import com.arthenica.smartexception.AbstractExceptions;
 import com.arthenica.smartexception.StackTraceElementSerializer;
+import com.arthenica.smartexception.Exceptions;
 
 public class JavaStackTraceElementSerializer implements StackTraceElementSerializer {
 
@@ -71,7 +72,7 @@ public class JavaStackTraceElementSerializer implements StackTraceElementSeriali
         final StringBuilder stringBuilder = new StringBuilder();
 
         String className = stackTraceElement.getClassName();
-        Class<?> loadedClass = Exceptions.classLoader.loadClass(className);
+        Class<?> loadedClass = com.arthenica.smartexception.Exceptions.classLoader.loadClass(className);
         if (loadedClass != null) {
             final String libraryName = AbstractExceptions.libraryName(loadedClass);
             final String version = AbstractExceptions.version(Exceptions.packageLoader, loadedClass, AbstractExceptions.packageName(className));

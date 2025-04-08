@@ -32,7 +32,11 @@
 
 package com.arthenica.smartexception;
 
-import java.util.*;
+import java.util.Collections;
+import java.util.IdentityHashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Set;
 
 public class ThrowableWrapper {
     private final String message;

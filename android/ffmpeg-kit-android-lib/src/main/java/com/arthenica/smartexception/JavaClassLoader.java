@@ -30,7 +30,7 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-package com.arthenica.smartexception.java;
+package com.arthenica.smartexception;
 
 import com.arthenica.smartexception.ClassLoader;
 

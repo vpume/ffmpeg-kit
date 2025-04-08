@@ -5,7 +5,7 @@
 
     <groupId>ch.voicepoint</groupId>
     <artifactId>ffmpeg-kit</artifactId>
-    <version>6.0.22</version>
+    <version>6.0.23</version>
     <packaging>aar</packaging>
 
     <name>FFmpeg Kit</name>

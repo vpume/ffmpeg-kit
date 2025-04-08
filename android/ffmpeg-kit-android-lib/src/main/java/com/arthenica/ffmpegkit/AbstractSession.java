@@ -19,7 +19,7 @@
 
 package com.arthenica.ffmpegkit;
 
-import com.arthenica.smartexception.java.Exceptions;
+import com.arthenica.smartexception.Exceptions;
 
 import java.util.Date;
 import java.util.LinkedList;

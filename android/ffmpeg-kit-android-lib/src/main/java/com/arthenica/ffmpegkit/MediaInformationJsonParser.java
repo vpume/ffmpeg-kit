@@ -21,7 +21,7 @@ package com.arthenica.ffmpegkit;
 
 import android.util.Log;
 
-import com.arthenica.smartexception.java.Exceptions;
+import com.arthenica.smartexception.Exceptions;
 
 import org.json.JSONArray;
 import org.json.JSONException;

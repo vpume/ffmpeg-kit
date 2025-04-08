@@ -19,7 +19,7 @@
 
 package com.arthenica.ffmpegkit;
 
-import com.arthenica.smartexception.java.Exceptions;
+import com.arthenica.smartexception.Exceptions;
 
 /**
  * <p>Executes an FFprobe session asynchronously.

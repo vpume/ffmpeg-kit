@@ -30,12 +30,16 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-package com.arthenica.smartexception.java;
+package com.arthenica.smartexception;
 
-import com.arthenica.smartexception.ClassLoader;
 import com.arthenica.smartexception.*;
+import com.arthenica.smartexception.JavaClassLoader;
+import com.arthenica.smartexception.JavaPackageLoader;
+import com.arthenica.smartexception.JavaStackTraceElementSerializer;
 
 import java.util.Set;
+
+
 
 /**
  * <p>Utility class to handle Throwable objects and stack traces. This implementation is compatible with all Java and
