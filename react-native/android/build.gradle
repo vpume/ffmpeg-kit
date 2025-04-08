@@ -13,7 +13,7 @@ apply plugin: 'com.android.library'
 
 android {
   if (project.android.hasProperty("namespace")) {
-    namespace 'com.arthenica.ffmpegkit.reactnative'
+    namespace 'ch.voicepoint.ffmpegkit.reactnative'
   }
 
   compileSdkVersion 33
@@ -22,7 +22,7 @@ android {
     minSdkVersion 24
     targetSdkVersion 33
     versionCode 602
-    versionName "6.0.20"
+    versionName "6.0.21"
   }
 
   buildTypes {
@@ -120,5 +120,5 @@ repositories {
 
 dependencies {
   api 'com.facebook.react:react-native:+'
-  implementation 'com.arthenica:ffmpeg-kit:6.0.20'
+  implementation 'ch.voicepoint:ffmpeg-kit:6.0.21'
 }
