@@ -5,3 +5,5 @@
 !/prebuilt/bundle-apple-xcframework-ios/
 .DS_Store
 .idea
+/src/ffmpeg/libavutil/log.c.tmp
+/src/ffmpeg/libavformat/protocols.c.tmp
