@@ -20,6 +20,6 @@ Pod::Spec.new do |s|
 
   s.source_files      = '**/FFmpegKitReactNativeModule.m',
                        '**/FFmpegKitReactNativeModule.h'
-  s.dependency 'voicepoint-ffmpeg-kit-ios-https', "6.0.21"
+  s.dependency 'voicepoint-ffmpeg-kit-ios-https', "6.0.22"
   s.ios.deployment_target = '12.1'
 end
