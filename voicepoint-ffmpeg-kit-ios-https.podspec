@@ -2,7 +2,7 @@ require "json"
 
 Pod::Spec.new do |s|
   s.name         = "voicepoint-ffmpeg-kit-ios-https"
-  s.version      = "6.0.32"
+  s.version      = "6.0.33"
   s.summary      = "FFmpeg Kit iOS Https Shared Framework"
   s.description  = "Includes FFmpeg with gmp and gnutls libraries enabled."
   s.homepage     = "https://github.com/vpume/ffmpeg-kit"
@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   s.requires_arc      = true
   s.static_framework  = true
 
-  s.source       = { :http => "https://github.com/vpume/ffmpeg-kit/releases/download/react.native.v6.0.32-voicepoint/ffmpeg-kit-https-6.0-ios-xcframework.zip"}
+  s.source       = { :http => "https://github.com/vpume/ffmpeg-kit/releases/download/react.native.v6.0.33-voicepoint/ffmpeg-kit-https-6.0-ios-xcframework.zip"}
 
   s.libraries = [
     "z",
