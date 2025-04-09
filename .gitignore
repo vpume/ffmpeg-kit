@@ -5,12 +5,5 @@
 !/prebuilt/bundle-apple-xcframework-ios/
 .DS_Store
 .idea
-/src/ffmpeg/libavutil/log.c.tmp
-/src/ffmpeg/libavformat/protocols.c.tmp
+/src/
 /prebuilt/bundle-apple-xcframework-ios/ffmpeg-kit-https-6.0-ios-xcframework.zip
-/src/ffmpeg/ffbuild/common.mak.tmp
-/src/ffmpeg/ffbuild/config.mak.tmp
-/src/ffmpeg/libavcodec/videotoolbox.c.tmp
-/src/ffmpeg/libavformat/protocols.c.tmp
-/src/ffmpeg/libavutil/log.c.tmp
-/src/ffmpeg/configure.tmp
