@@ -7,3 +7,4 @@
 .idea
 /src/ffmpeg/libavutil/log.c.tmp
 /src/ffmpeg/libavformat/protocols.c.tmp
+/prebuilt/bundle-apple-xcframework-ios/ffmpeg-kit-https-6.0-ios-xcframework.zip
