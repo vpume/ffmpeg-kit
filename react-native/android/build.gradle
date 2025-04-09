@@ -22,7 +22,7 @@ android {
     minSdkVersion 24
     targetSdkVersion 33
     versionCode 602
-    versionName "6.0.31"
+    versionName "6.0.32"
   }
 
   buildTypes {
@@ -55,5 +55,5 @@ repositories {
 
 dependencies {
   api 'com.facebook.react:react-native:+'
-  implementation 'ch.voicepoint:ffmpeg-kit:6.0.31'
+  implementation 'ch.voicepoint:ffmpeg-kit:6.0.32'
 }
