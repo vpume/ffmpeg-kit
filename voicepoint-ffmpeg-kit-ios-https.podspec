@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   s.requires_arc      = true
   s.static_framework  = true
 
-  s.source       = { :http => "https://github.com/vpume/ffmpeg-kit/releases/download/react.native.v6.0.10-voicepoint/ffmpeg-kit-https-6.0-ios-xcframework.zip"}
+  s.source       = { :http => "https://github.com/vpume/ffmpeg-kit/releases/download/react.native.v6.0.31-voicepoint/ffmpeg-kit-https-6.0-ios-xcframework.zip"}
 
   s.libraries = [
     "z",
