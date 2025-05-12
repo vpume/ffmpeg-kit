@@ -17,7 +17,7 @@ publishing {
         maven(MavenPublication) {
             groupId = 'ch.voicepoint'
             artifactId = 'ffmpeg-kit'
-            version = '6.0.35'
+            version = '6.0.36'
 
             artifact(file('./../prebuilt/bundle-android-aar/ffmpeg-kit/ffmpeg-kit.aar')) {
                 extension = 'aar'
