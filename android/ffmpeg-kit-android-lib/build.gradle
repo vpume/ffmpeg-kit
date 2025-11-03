@@ -1,11 +1,11 @@
 apply plugin: 'com.android.library'
 
 android {
+    compileSdk 35
     if (project.android.hasProperty("namespace")) {
         namespace 'com.arthenica.ffmpegkit'
     }
-    compileSdk 33
-    ndkVersion "22.1.7171670"
+    ndkVersion '28.0.13004108'
 
     defaultConfig {
         minSdk 24
@@ -24,8 +24,8 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_11
-        targetCompatibility JavaVersion.VERSION_11
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
 
     sourceSets {
@@ -47,6 +47,12 @@ android {
             withJavadocJar()
             withSourcesJar()
         }
+    }
+}
+
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(17))
     }
 }
 
